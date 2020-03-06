@@ -6,11 +6,11 @@ export interface ApiClient extends AxiosInstance {}
 
 const currentDomain = window.location.hostname;
 
-const prodDomain = "accountant.now.sh";
-const devDomain = "accountant-dev.now.sh";
+const prodDomain = "foglie-dialloro-admin.now.sh";
+const devDomain = "foglie-dialloro-admin.now.sh";
 
-const prodApiUrl = "https://accountant-prd.herokuapp.com/";
-const devApiUrl = "https://accountant-dev.herokuapp.com/";
+const prodApiUrl = "https://foglie-dialloro-api.herokuapp.com/";
+const devApiUrl = "https://foglie-dialloro-api.herokuapp.com/";
 const localApiUrl = "http://localhost:4400/";
 
 function getBaseApiUrl(): string {
