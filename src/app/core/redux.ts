@@ -110,7 +110,7 @@ export interface ICRUDReduxState<T> {
   list: IAsyncData<T[]>;
   details: IAsyncData<T>;
   create: IAsyncData<IId>;
-  createBulk: IAsyncData<void>;
+  // createBulk: IAsyncData<void>;
   edit: IAsyncData<void>;
   delete: IAsyncData<void>;
 }
@@ -119,7 +119,7 @@ export interface ICRUDReducers<T> {
   list: Reducer<IAsyncData<T[]>, IAsyncReduxAction<T[]>>;
   details: Reducer<IAsyncData<T>, IAsyncReduxAction<T>>;
   create: Reducer<IAsyncData<IId>, IAsyncReduxAction<IId>>;
-  createBulk: Reducer<IAsyncData<void>, IAsyncReduxAction<void>>;
+  // createBulk: Reducer<IAsyncData<void>, IAsyncReduxAction<void>>;
   edit: Reducer<IAsyncData<void>, IAsyncReduxAction<void>>;
   delete: Reducer<IAsyncData<void>, IAsyncReduxAction<void>>;
 }
@@ -129,7 +129,7 @@ export function generateCrudReducers<T>(actions: ICRUDActionTypes): ICRUDReducer
     list: asyncItemReducerGenerator<T[]>(actions.list),
     details: asyncItemReducerGenerator<T>(actions.detail),
     create: asyncItemReducerGenerator<IId>(actions.create),
-    createBulk: asyncItemReducerGenerator<void>(actions.createBulk),
+    // createBulk: asyncItemReducerGenerator<void>(actions.createBulk),
     edit: asyncItemReducerGenerator<void>(actions.edit),
     delete: asyncItemReducerGenerator<void>(actions.delete),
   };
@@ -140,7 +140,7 @@ interface IReduxCrud<TEntity, TForm> {
     getList: (searchQuery?: string) => IAsyncReduxAction<TEntity[]>;
     getDetail: (id: string) => IAsyncReduxAction<TEntity>;
     create: (form: TForm) => IAsyncReduxAction<IId>;
-    createBulk: (forms: TForm) => IAsyncWithConfirmationReduxAction<void, IActionWithConfirmationMeta>;
+    // createBulk: (forms: TForm) => IAsyncWithConfirmationReduxAction<void, IActionWithConfirmationMeta>;
     edit: (id: string, form: TForm) => IAsyncReduxAction<void>;
     delete: (id: string) => IAsyncWithConfirmationReduxAction<void, IActionWithConfirmationMeta>;
   };
@@ -171,7 +171,7 @@ export interface ICrudReduxActionCreators<TEntity, TForm> {
   getList: (searchQuery?: string) => IAsyncReduxAction<TEntity[]>;
   getDetail: (id: string) => IAsyncReduxAction<TEntity>;
   create: (form: TForm) => IAsyncReduxAction<IId>;
-  createBulk: (forms: TForm) => IAsyncWithConfirmationReduxAction<void, IActionWithConfirmationMeta>;
+  // createBulk: (forms: TForm) => IAsyncWithConfirmationReduxAction<void, IActionWithConfirmationMeta>;
   edit: (id: string, form: TForm) => IAsyncReduxAction<void>;
   delete: (id: string) => IAsyncWithConfirmationReduxAction<void, IActionWithConfirmationMeta>;
 }
@@ -196,16 +196,16 @@ export function generateCrudReduxActionCreators<TEntity, TForm>({
       type: actionTypes.create,
       payload: repository.create(form),
     }),
-    createBulk: (forms: TForm): IAsyncWithConfirmationReduxAction<void, IActionWithConfirmationMeta> => ({
-      type: actionTypes.createBulk,
-      payload: (): Promise<void> => repository.createBulk(forms),
-      meta: {
-        confirmation: {
-          title: "Are you sure you want to create this item?",
-          message: "Are you sure?",
-        },
-      },
-    }),
+    // createBulk: (forms: TForm): IAsyncWithConfirmationReduxAction<void, IActionWithConfirmationMeta> => ({
+    //   type: actionTypes.createBulk,
+    //   payload: (): Promise<void> => repository.createBulk(forms),
+    //   meta: {
+    //     confirmation: {
+    //       title: "Are you sure you want to create this item?",
+    //       message: "Are you sure?",
+    //     },
+    //   },
+    // }),
     edit: (id: string, form: TForm): IAsyncReduxAction<void> => ({
       type: actionTypes.edit,
       payload: repository.edit(id, form),

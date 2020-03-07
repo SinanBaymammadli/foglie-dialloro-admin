@@ -5,11 +5,13 @@ import { reduxPromiseMiddleware, confirmationMiddleware } from "./middlewares";
 import { IAuthenticationReduxState, AuthenticationReducers } from "../modules/auth/ui/state/state";
 import { UserReducers, IUserReduxState } from "../modules/user/ui/state/state";
 import { IProfileReduxState, ProfileReducers } from "../modules/profile/ui/state/state";
+import { IMemberReduxState, MemberReducers } from "../modules/members/ui/state/state";
 
 export interface IAppReduxState {
   auth: IAuthenticationReduxState;
   user: IUserReduxState;
   profile: IProfileReduxState;
+  members: IMemberReduxState;
 }
 
 export function getRootReducer(): Reducer<IAppReduxState> {
@@ -17,6 +19,7 @@ export function getRootReducer(): Reducer<IAppReduxState> {
     auth: AuthenticationReducers,
     user: UserReducers,
     profile: ProfileReducers,
+    members: MemberReducers,
   };
 
   return combineReducers<IAppReduxState>(reducersList);

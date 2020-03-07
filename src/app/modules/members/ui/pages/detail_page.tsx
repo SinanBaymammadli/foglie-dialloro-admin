@@ -3,43 +3,48 @@ import { useDispatch, useSelector } from "react-redux";
 import { IAppReduxState } from "../../../../redux/store";
 import { useRouteMatch, useHistory } from "react-router-dom";
 import { IAsyncData } from "../../../../core/models";
-import { userReduxActions } from "../state/state";
-import { IUser } from "../../data/entities";
+import { memberReduxActions } from "../state/state";
+import { IMember } from "../../data/entities";
 import { DetailTable } from "../../../../components/detail_table";
 import { ROUTES } from "../../../../routes";
 import { Table, TableBody, TableRow, TableCell, Grid } from "@material-ui/core";
 
-export const UserDetailPage: React.FC = () => {
+export const MemberDetailPage: React.FC = () => {
   const match = useRouteMatch<{ id: string }>();
   const { id } = match.params;
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(userReduxActions.getDetail(id));
+    dispatch(memberReduxActions.getDetail(id));
   }, [dispatch, id]);
-  const userDetailBranch = useSelector<IAppReduxState, IAsyncData<IUser>>((state) => state.user.details);
+  const memberDetailBranch = useSelector<IAppReduxState, IAsyncData<IMember>>((state) => state.members.details);
 
-  const deleteUser = async (id: string): Promise<void> => {
-    await dispatch(userReduxActions.delete(id));
-    history.push(ROUTES.user);
+  const deleteMember = async (id: string): Promise<void> => {
+    await dispatch(memberReduxActions.delete(id));
+    history.push(ROUTES.members);
   };
-  const deleteBranch = useSelector<IAppReduxState, IAsyncData<void>>((state) => state.user.delete);
+  const deleteBranch = useSelector<IAppReduxState, IAsyncData<void>>((state) => state.members.delete);
 
   return (
     <Grid container justify="center">
       <Grid item md={8} lg={6}>
-        <DetailTable branch={userDetailBranch} route={ROUTES.user} onDelete={deleteUser} deleteBranch={deleteBranch}>
+        <DetailTable
+          branch={memberDetailBranch}
+          route={ROUTES.members}
+          onDelete={deleteMember}
+          deleteBranch={deleteBranch}
+        >
           <Table size="medium" className="detail-table">
             <TableBody>
               <TableRow>
                 <TableCell>Ad</TableCell>
-                <TableCell>{userDetailBranch.data?.name}</TableCell>
+                <TableCell>{memberDetailBranch.data?.firstName.az}</TableCell>
               </TableRow>
 
               <TableRow>
                 <TableCell>Email</TableCell>
-                <TableCell>{userDetailBranch.data?.email}</TableCell>
+                <TableCell>{memberDetailBranch.data?.lastName.az}</TableCell>
               </TableRow>
             </TableBody>
           </Table>

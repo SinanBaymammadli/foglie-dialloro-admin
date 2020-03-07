@@ -97,6 +97,7 @@ export const Layout: React.FC<IProps> = (props: IProps) => {
       <Divider />
       <List disablePadding>
         <NavItem to={ROUTES.user} text="Users" icon={<AppsIcon />} onClick={handleClose} />
+        <NavItem to={ROUTES.members} text="Member" icon={<AppsIcon />} onClick={handleClose} />
       </List>
     </div>
   );
@@ -115,7 +116,7 @@ export const Layout: React.FC<IProps> = (props: IProps) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap className={classes.title}>
-            Sistem
+            Foglie D’alloro
           </Typography>
           <div>
             <IconButton

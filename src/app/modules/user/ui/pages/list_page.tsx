@@ -4,7 +4,7 @@ import { IAppReduxState } from "../../../../redux/store";
 import TableCell from "@material-ui/core/TableCell";
 import { ROUTES } from "../../../../routes";
 import { IAsyncData } from "../../../../core/models";
-import { userRedux } from "../state/state";
+import { userReduxActions } from "../state/state";
 import { IUser } from "../../data/entities";
 import { ListTable } from "../../../../components/list_table";
 import { CreateButton } from "../../../../components/create_button";
@@ -13,13 +13,13 @@ export const UserListPage: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(userRedux.actions.getList());
+    dispatch(userReduxActions.getList());
   }, [dispatch]);
   const userListBranch = useSelector<IAppReduxState, IAsyncData<IUser[]>>((state) => state.user.list);
 
   const deleteUser = async (id: string): Promise<void> => {
-    await dispatch(userRedux.actions.delete(id));
-    dispatch(userRedux.actions.getList());
+    await dispatch(userReduxActions.delete(id));
+    dispatch(userReduxActions.getList());
   };
   const deleteBranch = useSelector<IAppReduxState, IAsyncData<void>>((state) => state.user.delete);
 

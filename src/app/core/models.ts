@@ -67,17 +67,17 @@ export const multiLangValidation = Yup.object<IMultiLang>({
 
 export function multiLangToJson(data: IMultiLang, key: string): { [x: string]: string } {
   return {
-    [`${key}_az`]: data.az,
-    [`${key}_en`]: data.en,
-    [`${key}_ru`]: data.ru,
+    [`${key}Az`]: data.az,
+    [`${key}En`]: data.en,
+    [`${key}Ru`]: data.ru,
   };
 }
 
 export function multiLangFromJson(data: any, key: string): IMultiLang {
   return {
-    az: data[`${key}_az`],
-    en: data[`${key}_en`],
-    ru: data[`${key}_ru`],
+    az: data[`${key}Az`],
+    en: data[`${key}En`],
+    ru: data[`${key}Ru`],
   };
 }
 
