@@ -5,4 +5,5 @@ export const ROUTES = {
   members: "/members",
   category: "/categories",
   post: "/posts",
+  project: "/projects",
 };

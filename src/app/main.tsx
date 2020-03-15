@@ -14,6 +14,7 @@ import { ProfileMainPage } from "./modules/profile/ui/pages/main_page";
 import { MemberMainPage } from "./modules/members/ui/pages/main_page";
 import { CategoryMainPage } from "./modules/category/ui/pages/main_page";
 import { PostMainPage } from "./modules/post/ui/pages/main_page";
+import { ProjectMainPage } from "./modules/project/ui/pages/main_page";
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();
@@ -50,6 +51,10 @@ export const Main: React.FC = () => {
 
             <Route path={ROUTES.post}>
               <PostMainPage />
+            </Route>
+
+            <Route path={ROUTES.project}>
+              <ProjectMainPage />
             </Route>
 
             <Route path="*">
