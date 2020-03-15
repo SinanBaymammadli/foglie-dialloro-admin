@@ -7,6 +7,7 @@ import { UserReducers, IUserReduxState } from "../modules/user/ui/state/state";
 import { IProfileReduxState, ProfileReducers } from "../modules/profile/ui/state/state";
 import { IMemberReduxState, MemberReducers } from "../modules/members/ui/state/state";
 import { ICategoryReduxState, CategoryReducers } from "../modules/category/ui/state/state";
+import { IPostReduxState, PostReducers } from "../modules/post/ui/state/state";
 
 export interface IAppReduxState {
   auth: IAuthenticationReduxState;
@@ -14,6 +15,7 @@ export interface IAppReduxState {
   profile: IProfileReduxState;
   members: IMemberReduxState;
   category: ICategoryReduxState;
+  post: IPostReduxState;
 }
 
 export function getRootReducer(): Reducer<IAppReduxState> {
@@ -23,6 +25,7 @@ export function getRootReducer(): Reducer<IAppReduxState> {
     profile: ProfileReducers,
     members: MemberReducers,
     category: CategoryReducers,
+    post: PostReducers,
   };
 
   return combineReducers<IAppReduxState>(reducersList);
