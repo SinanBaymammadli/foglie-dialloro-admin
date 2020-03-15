@@ -46,6 +46,13 @@ export const MemberDetailPage: React.FC = () => {
                 <TableCell>Email</TableCell>
                 <TableCell>{memberDetailBranch.data?.lastName.az}</TableCell>
               </TableRow>
+
+              <TableRow>
+                <TableCell>Photo</TableCell>
+                <TableCell>
+                  <img src={memberDetailBranch.data?.image.url} />
+                </TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </DetailTable>

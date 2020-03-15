@@ -13,6 +13,7 @@ export const MemberCreatePage: React.FC = () => {
   const history = useHistory();
 
   const onSubmit = async (values: IMemberForm): Promise<void> => {
+    // const file = await uploadFile(values.file);
     await dispatch(memberReduxActions.create(values));
     history.push(ROUTES.members);
   };

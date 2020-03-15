@@ -1,18 +1,19 @@
 import { ApiClient } from "./api_client";
 import { ICRUDRepo } from "./models";
 import { Failure } from "./failure";
+import { objectToFormData } from "object-to-formdata";
 
 export function generateCrudRepoFactory<T, TForm>(
   apiClient: ApiClient,
   url: string,
   fromJson: (json: any) => T,
   toJson: (form: TForm) => any,
+  hasFile = false,
 ): ICRUDRepo<T, TForm> {
   const r: ICRUDRepo<T, TForm> = {
-    getList: async (searchQuery) => {
+    getList: async () => {
       try {
-        const sq = searchQuery || `?sort=id,DESC`;
-        const res = await apiClient.get(`/${url}${sq}`);
+        const res = await apiClient.get(`/${url}`);
         return res.data.map(fromJson);
       } catch (error) {
         const failure: Failure = {
@@ -33,19 +34,16 @@ export function generateCrudRepoFactory<T, TForm>(
       }
     },
     create: async (form) => {
+      const json = toJson(form);
+      const data = hasFile ? objectToFormData(json, { indices: true }) : json;
+
       try {
-        const res = await apiClient.post(`/${url}`, toJson(form));
-        return { id: res.data.id };
-      } catch (error) {
-        const failure: Failure = {
-          message: error.message ?? "Unhandled failure",
-        };
-        throw failure;
-      }
-    },
-    createBulk: async (form) => {
-      try {
-        await apiClient.post(`/${url}/bulk`, toJson(form));
+        const res = await apiClient.post(`/${url}`, data, {
+          headers: {
+            "Content-Type": hasFile ? "multipart/form-data" : "application/json",
+          },
+        });
+        return res.data;
       } catch (error) {
         const failure: Failure = {
           message: error.message ?? "Unhandled failure",
@@ -54,8 +52,14 @@ export function generateCrudRepoFactory<T, TForm>(
       }
     },
     edit: async (id, form) => {
+      const data = hasFile ? objectToFormData(toJson(form), { indices: true }) : toJson(form);
+
       try {
-        await apiClient.put(`/${url}/${id}`, toJson(form));
+        await apiClient.put(`/${url}/${id}`, data, {
+          headers: {
+            "Content-Type": hasFile ? "multipart/form-data" : "application/json",
+          },
+        });
       } catch (error) {
         const failure: Failure = {
           message: error.message ?? "Unhandled failure",

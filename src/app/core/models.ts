@@ -43,7 +43,7 @@ export interface ICRUDRepo<T, TForm, TDetailParams = {}> {
   getList: (searchQuery?: string) => Promise<T[]>;
   getDetails: (id: string) => Promise<T>;
   create: (form: TForm) => Promise<IId>;
-  createBulk: (form: TForm) => Promise<void>;
+  // createBulk: (form: TForm) => Promise<void>;
   delete: (id: string) => Promise<void>;
   edit: (id: string, form: TForm) => Promise<void>;
 }
@@ -109,4 +109,18 @@ export const basicEntityFromJson = (json: any): IBasicEntity => {
 export interface IRange<T> {
   from: Maybe<T>;
   to: Maybe<T>;
+}
+
+export interface IImage {
+  url: string;
+  width: number;
+  height: number;
+}
+
+export function generateImage(json: any): IImage {
+  return {
+    url: json?.url,
+    width: json?.width,
+    height: json?.height,
+  };
 }

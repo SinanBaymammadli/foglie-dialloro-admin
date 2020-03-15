@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const MAX_FILE_SIZE = 0.5 * 1024 * 1000; // TODO: 2MB, Lower this
+export const MAX_FILE_SIZE = 5 * 1024 * 1000; // TODO: 2MB, Lower this
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 
 export const fileValidation = Yup.mixed()

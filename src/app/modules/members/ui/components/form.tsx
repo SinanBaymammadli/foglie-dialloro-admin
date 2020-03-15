@@ -6,6 +6,7 @@ import { memberFormValidation, IMemberForm } from "../../data/entities";
 import { FormButton } from "../../../../components/form_button";
 import { Form } from "../../../../components/form";
 import { Grid } from "@material-ui/core";
+import { FileInput } from "../../../../components/file_input";
 
 interface IProps extends IFormProps<IMemberForm> {}
 
@@ -17,28 +18,31 @@ export const MemberForm: React.FC<IProps> = (props: IProps) => {
     <Grid container justify="center">
       <Grid item md={8} lg={6}>
         <Form<IMemberForm>
-          {...props}
           initialValues={{
             firstName: {
-              az: "",
-              en: "",
-              ru: "",
+              az: "Aynur",
+              en: "Aynur",
+              ru: "Aynur",
             },
             lastName: {
-              az: "",
-              en: "",
-              ru: "",
+              az: "Gurbanova",
+              en: "Gurbanova",
+              ru: "Gurbanova",
             },
             position: {
-              az: "",
-              en: "",
-              ru: "",
+              az: "Director",
+              en: "Director",
+              ru: "Director",
             },
+            file: undefined,
           }}
           validationSchema={memberFormValidation}
+          {...props}
         >
-          {() => (
+          {({ setFieldValue }) => (
             <>
+              <FileInput label="Image" name="file" setFieldValue={setFieldValue} />
+
               <TextInput label="First name Az" name="firstName.az" />
               <TextInput label="First name En" name="firstName.en" />
               <TextInput label="First name Ru" name="firstName.ru" />
