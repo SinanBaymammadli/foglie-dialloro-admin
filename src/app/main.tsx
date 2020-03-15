@@ -12,6 +12,7 @@ import { LoginPage } from "./modules/auth/ui/pages/login_page";
 import { UserMainPage } from "./modules/user/ui/pages/main_page";
 import { ProfileMainPage } from "./modules/profile/ui/pages/main_page";
 import { MemberMainPage } from "./modules/members/ui/pages/main_page";
+import { CategoryMainPage } from "./modules/category/ui/pages/main_page";
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();
@@ -42,8 +43,12 @@ export const Main: React.FC = () => {
               <MemberMainPage />
             </Route>
 
+            <Route path={ROUTES.category}>
+              <CategoryMainPage />
+            </Route>
+
             <Route path="*">
-              <Redirect to={ROUTES.user} />
+              <Redirect to="/" />
             </Route>
           </Switch>
         </Layout>
