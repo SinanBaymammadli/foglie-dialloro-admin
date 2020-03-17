@@ -20,19 +20,19 @@ export const MemberForm: React.FC<IProps> = (props: IProps) => {
         <Form<IMemberForm>
           initialValues={{
             firstName: {
-              az: "Aynur",
-              en: "Aynur",
-              ru: "Aynur",
+              az: "",
+              en: "",
+              ru: "",
             },
             lastName: {
-              az: "Gurbanova",
-              en: "Gurbanova",
-              ru: "Gurbanova",
+              az: "",
+              en: "",
+              ru: "",
             },
             position: {
-              az: "Director",
-              en: "Director",
-              ru: "Director",
+              az: "",
+              en: "",
+              ru: "",
             },
             file: undefined,
           }}
