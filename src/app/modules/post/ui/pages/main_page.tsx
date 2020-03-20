@@ -1,11 +1,12 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import { PostListPage } from "./list_page";
-import { PostCreatePage } from "./create_page";
-import { PostEditPage } from "./edit_page";
-import { ROUTES } from "../../../../routes";
+import { Route, Switch } from "react-router-dom";
+
 import { Routing } from "../../../../core/routing";
+import { ROUTES } from "../../../../routes";
+import { PostCreatePage } from "./create_page";
 import { PostDetailPage } from "./detail_page";
+import { PostEditPage } from "./edit_page";
+import { PostListPage } from "./list_page";
 
 export const PostMainPage: React.FC = () => {
   return (

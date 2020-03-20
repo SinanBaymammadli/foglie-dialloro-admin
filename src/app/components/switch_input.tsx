@@ -1,7 +1,7 @@
-import React from "react";
-import { Field, FieldProps } from "formik";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import { Field, FieldProps } from "formik";
+import React from "react";
 
 interface IProps {
   label: string;

@@ -1,7 +1,7 @@
 import { ApiClient, apiClient } from "../../../core/api_client";
+import { generateCrudRepoFactory } from "../../../core/crud";
 import { ICRUDRepo } from "../../../core/models";
 import { IMember, IMemberForm, memberFromJson, memberToJson } from "./entities";
-import { generateCrudRepoFactory } from "../../../core/crud";
 
 interface IMemberRepo extends ICRUDRepo<IMember, IMemberForm> {}
 

@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { IAppReduxState } from "../../../../redux/store";
-import { useRouteMatch, useHistory } from "react-router-dom";
-import { ProjectForm } from "../components/form";
-import { ROUTES } from "../../../../routes";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useRouteMatch } from "react-router-dom";
+
 import { IAsyncData } from "../../../../core/models";
-import { IProjectForm, IProject, projectEditFormValidation } from "../../data/entities";
-import { projectReduxActions } from "../state/state";
 import { Routing } from "../../../../core/routing";
+import { IAppReduxState } from "../../../../redux/store";
+import { ROUTES } from "../../../../routes";
+import { IProject, IProjectForm, projectEditFormValidation } from "../../data/entities";
+import { ProjectForm } from "../components/form";
+import { projectReduxActions } from "../state/state";
 
 export const ProjectEditPage: React.FC = () => {
   const match = useRouteMatch<{ id: string }>();

@@ -1,14 +1,15 @@
-import thunk, { ThunkDispatch } from "redux-thunk";
-import { createStore, applyMiddleware, combineReducers, Reducer, Action } from "redux";
+import { Action, applyMiddleware, combineReducers, createStore, Reducer } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { reduxPromiseMiddleware, confirmationMiddleware } from "./middlewares";
-import { IAuthenticationReduxState, AuthenticationReducers } from "../modules/auth/ui/state/state";
-import { UserReducers, IUserReduxState } from "../modules/user/ui/state/state";
-import { IProfileReduxState, ProfileReducers } from "../modules/profile/ui/state/state";
+import thunk, { ThunkDispatch } from "redux-thunk";
+
+import { AuthenticationReducers, IAuthenticationReduxState } from "../modules/auth/ui/state/state";
+import { CategoryReducers, ICategoryReduxState } from "../modules/category/ui/state/state";
 import { IMemberReduxState, MemberReducers } from "../modules/members/ui/state/state";
-import { ICategoryReduxState, CategoryReducers } from "../modules/category/ui/state/state";
 import { IPostReduxState, PostReducers } from "../modules/post/ui/state/state";
+import { IProfileReduxState, ProfileReducers } from "../modules/profile/ui/state/state";
 import { IProjectReduxState, ProjectReducers } from "../modules/project/ui/state/state";
+import { IUserReduxState, UserReducers } from "../modules/user/ui/state/state";
+import { confirmationMiddleware, reduxPromiseMiddleware } from "./middlewares";
 
 export interface IAppReduxState {
   auth: IAuthenticationReduxState;

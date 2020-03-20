@@ -1,11 +1,12 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import { MemberListPage } from "./list_page";
-import { MemberCreatePage } from "./create_page";
-import { MemberEditPage } from "./edit_page";
-import { ROUTES } from "../../../../routes";
+import { Route, Switch } from "react-router-dom";
+
 import { Routing } from "../../../../core/routing";
+import { ROUTES } from "../../../../routes";
+import { MemberCreatePage } from "./create_page";
 import { MemberDetailPage } from "./detail_page";
+import { MemberEditPage } from "./edit_page";
+import { MemberListPage } from "./list_page";
 
 export const MemberMainPage: React.FC = () => {
   return (

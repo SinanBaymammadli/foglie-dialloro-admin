@@ -1,7 +1,7 @@
 import { ApiClient, apiClient } from "../../../core/api_client";
+import { generateCrudRepoFactory } from "../../../core/crud";
 import { ICRUDRepo } from "../../../core/models";
 import { IUser, IUserForm, userFromJson, userToJson } from "./entities";
-import { generateCrudRepoFactory } from "../../../core/crud";
 
 interface IUserRepo extends ICRUDRepo<IUser, IUserForm> {}
 

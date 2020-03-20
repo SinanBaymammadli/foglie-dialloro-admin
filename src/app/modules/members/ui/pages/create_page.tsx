@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IAppReduxState } from "../../../../redux/store";
 import { useHistory } from "react-router-dom";
-import { ROUTES } from "../../../../routes";
-import { MemberForm } from "../components/form";
+
 import { IAsyncData } from "../../../../core/models";
-import { memberReduxActions } from "../state/state";
+import { IAppReduxState } from "../../../../redux/store";
+import { ROUTES } from "../../../../routes";
 import { IMemberForm } from "../../data/entities";
+import { MemberForm } from "../components/form";
+import { memberReduxActions } from "../state/state";
 
 export const MemberCreatePage: React.FC = () => {
   const dispatch = useDispatch();

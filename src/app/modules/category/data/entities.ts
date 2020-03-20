@@ -1,11 +1,12 @@
 import * as Yup from "yup";
+
 import {
-  IBasicEntity,
   basicEntityFromJson,
+  IBasicEntity,
   IMultiLang,
-  multiLangValidation,
   multiLangFromJson,
   multiLangToJson,
+  multiLangValidation,
 } from "../../../core/models";
 
 interface ICategoryBase {

@@ -1,7 +1,8 @@
-import { ApiClient } from "./api_client";
-import { ICRUDRepo } from "./models";
-import { Failure } from "./failure";
 import { objectToFormData } from "object-to-formdata";
+
+import { ApiClient } from "./api_client";
+import { Failure } from "./failure";
+import { ICRUDRepo } from "./models";
 
 export function generateCrudRepoFactory<T, TForm>(
   apiClient: ApiClient,

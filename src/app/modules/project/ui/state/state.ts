@@ -1,11 +1,12 @@
 import { combineReducers } from "redux";
+
 import {
-  ICRUDReduxState,
-  generateCrudReducers,
   generateCrudActionTypes,
+  generateCrudReducers,
+  generateCrudReduxActionCreators,
   ICRUDActionTypes,
   ICrudReduxActionCreators,
-  generateCrudReduxActionCreators,
+  ICRUDReduxState,
 } from "../../../../core/redux";
 import { IProject, IProjectForm } from "../../data/entities";
 import { ProjectRepoImpl } from "../../data/repo";

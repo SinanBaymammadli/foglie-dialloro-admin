@@ -1,12 +1,13 @@
+import { Grid } from "@material-ui/core";
 import React from "react";
+
+import { FileInput } from "../../../../components/file_input";
+import { Form } from "../../../../components/form";
+import { FormButton } from "../../../../components/form_button";
 import { TextInput } from "../../../../components/text_input";
 import { IFormProps } from "../../../../core/models";
 import { isPending } from "../../../../core/redux";
-import { memberFormValidation, IMemberForm } from "../../data/entities";
-import { FormButton } from "../../../../components/form_button";
-import { Form } from "../../../../components/form";
-import { Grid } from "@material-ui/core";
-import { FileInput } from "../../../../components/file_input";
+import { IMemberForm, memberFormValidation } from "../../data/entities";
 
 interface IProps extends IFormProps<IMemberForm> {}
 

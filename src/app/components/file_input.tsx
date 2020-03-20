@@ -1,7 +1,8 @@
-import React from "react";
+import { Box, FormHelperText } from "@material-ui/core";
 import { Field, FieldProps } from "formik";
-import { FormHelperText, Box } from "@material-ui/core";
+import React from "react";
 import ImageUploader from "react-images-upload";
+
 import { MAX_FILE_SIZE } from "../core/file";
 
 interface IProps {

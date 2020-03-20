@@ -1,11 +1,12 @@
-import React from "react";
-import { Formik, Form as FormikForm, FormikProps } from "formik";
 import { Box, Paper } from "@material-ui/core";
+import { Form as FormikForm, Formik, FormikProps } from "formik";
+import React from "react";
 import * as Yup from "yup";
+
 import { IFormProps, isAsyncData } from "../core/models";
 import { isPending } from "../core/redux";
-import { Loading } from "./loading";
 import { ErrorPanel } from "./error_panel";
+import { Loading } from "./loading";
 
 interface IProps<T> extends IFormProps<T> {
   initialValues: T;

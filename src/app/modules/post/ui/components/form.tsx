@@ -1,15 +1,16 @@
-import React, { useEffect } from "react";
-import { TextInput } from "../../../../components/text_input";
-import { IFormProps, IAsyncData } from "../../../../core/models";
-import { isPending } from "../../../../core/redux";
-import { postFormValidation, IPostForm, IPost } from "../../data/entities";
-import { FormButton } from "../../../../components/form_button";
-import { Form } from "../../../../components/form";
 import { Grid } from "@material-ui/core";
-import { SelectInput } from "../../../../components/select_input";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postReduxActions } from "../state/state";
+
+import { Form } from "../../../../components/form";
+import { FormButton } from "../../../../components/form_button";
+import { SelectInput } from "../../../../components/select_input";
+import { TextInput } from "../../../../components/text_input";
+import { IAsyncData, IFormProps } from "../../../../core/models";
+import { isPending } from "../../../../core/redux";
 import { IAppReduxState } from "../../../../redux/store";
+import { IPost, IPostForm, postFormValidation } from "../../data/entities";
+import { postReduxActions } from "../state/state";
 
 interface IProps extends IFormProps<IPostForm> {}
 

@@ -1,13 +1,14 @@
+import TableCell from "@material-ui/core/TableCell";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IAppReduxState } from "../../../../redux/store";
-import TableCell from "@material-ui/core/TableCell";
-import { ROUTES } from "../../../../routes";
-import { IAsyncData } from "../../../../core/models";
-import { memberReduxActions } from "../state/state";
-import { IMember } from "../../data/entities";
-import { ListTable } from "../../../../components/list_table";
+
 import { CreateButton } from "../../../../components/create_button";
+import { ListTable } from "../../../../components/list_table";
+import { IAsyncData } from "../../../../core/models";
+import { IAppReduxState } from "../../../../redux/store";
+import { ROUTES } from "../../../../routes";
+import { IMember } from "../../data/entities";
+import { memberReduxActions } from "../state/state";
 
 export const MemberListPage: React.FC = () => {
   const dispatch = useDispatch();

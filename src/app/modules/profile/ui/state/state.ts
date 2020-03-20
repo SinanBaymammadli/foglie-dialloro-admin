@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
+
 import { IAsyncData } from "../../../../core/models";
-import { IAsyncReduxAction, asyncItemReducerGenerator } from "../../../../core/redux";
-import { ProfileRepoImpl } from "../../data/repo";
+import { asyncItemReducerGenerator, IAsyncReduxAction } from "../../../../core/redux";
 import { IPasswordForm } from "../../data/entities";
+import { ProfileRepoImpl } from "../../data/repo";
 
 enum EProfileActionType {
   CHANGE_PASSWORD = "CHANGE_PASSWORD",

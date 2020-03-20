@@ -1,16 +1,17 @@
+import { Box, Container, Paper, Typography } from "@material-ui/core";
+import { Form, Formik } from "formik";
 import React from "react";
-import { TextInput } from "../../../../components/text_input";
-import { Container, Typography, Paper, Box } from "@material-ui/core";
-import { ErrorPanel } from "../../../../components/error_panel";
-import { Formik, Form } from "formik";
-import { ILoginForm, loginFormValidation } from "../../data/entites";
-import { isPending } from "../../../../core/redux";
 import { useDispatch, useSelector } from "react-redux";
-import { IAppReduxState } from "../../../../redux/store";
-import { IAsyncData } from "../../../../core/models";
-import { authRedux } from "../state/state";
+
 import { Center } from "../../../../components/center";
+import { ErrorPanel } from "../../../../components/error_panel";
 import { FormButton } from "../../../../components/form_button";
+import { TextInput } from "../../../../components/text_input";
+import { IAsyncData } from "../../../../core/models";
+import { isPending } from "../../../../core/redux";
+import { IAppReduxState } from "../../../../redux/store";
+import { ILoginForm, loginFormValidation } from "../../data/entites";
+import { authRedux } from "../state/state";
 
 export const LoginPage: React.FC = () => {
   const dispatch = useDispatch();

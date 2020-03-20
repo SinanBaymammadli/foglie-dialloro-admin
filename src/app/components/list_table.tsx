@@ -1,20 +1,21 @@
-import React from "react";
-import Table from "@material-ui/core/Table";
-import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
 import Typography from "@material-ui/core/Typography";
-import TableBody from "@material-ui/core/TableBody";
-import { Routing } from "../core/routing";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import { ErrorPanel } from "./error_panel";
-import { isSuccess, isError, isPending } from "../core/redux";
-import { Center } from "./center";
+
 import { IAsyncData, isAsyncData } from "../core/models";
-import { Loading } from "./loading";
+import { isError, isPending, isSuccess } from "../core/redux";
+import { Routing } from "../core/routing";
 import { ActionTableCell } from "./action_table_cell";
+import { Center } from "./center";
+import { ErrorPanel } from "./error_panel";
+import { Loading } from "./loading";
 
 interface IProps<T> {
   branch: IAsyncData<T[]> | T[];

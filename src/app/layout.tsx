@@ -1,23 +1,24 @@
-import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
-import MenuIcon from "@material-ui/icons/Menu";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import { createStyles, makeStyles, Theme, useTheme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import MenuItem from "@material-ui/core/MenuItem";
-import AppsIcon from "@material-ui/icons/Apps";
-import Menu from "@material-ui/core/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import { makeStyles, useTheme, Theme, createStyles } from "@material-ui/core/styles";
-import { NavItem } from "./components/nav_item";
+import AppsIcon from "@material-ui/icons/Apps";
+import MenuIcon from "@material-ui/icons/Menu";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { ROUTES } from "./routes";
-import { authRedux } from "./modules/auth/ui/state/state";
 import { useHistory } from "react-router-dom";
+
+import { NavItem } from "./components/nav_item";
+import { authRedux } from "./modules/auth/ui/state/state";
+import { ROUTES } from "./routes";
 
 const drawerWidth = 240;
 

@@ -1,11 +1,12 @@
 import React from "react";
-import { PasswordForm } from "../components/password_form";
 import { useDispatch, useSelector } from "react-redux";
-import { IAppReduxState } from "../../../../redux/store";
-import { IAsyncData } from "../../../../core/models";
-import { IPasswordForm } from "../../data/entities";
-import { profileRedux } from "../state/state";
 import { useHistory } from "react-router-dom";
+
+import { IAsyncData } from "../../../../core/models";
+import { IAppReduxState } from "../../../../redux/store";
+import { IPasswordForm } from "../../data/entities";
+import { PasswordForm } from "../components/password_form";
+import { profileRedux } from "../state/state";
 
 interface IProps {}
 

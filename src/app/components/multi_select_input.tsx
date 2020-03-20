@@ -1,7 +1,8 @@
+import { Checkbox, Chip, createStyles, ListItemText, makeStyles, MenuItem } from "@material-ui/core";
 import React from "react";
-import { Chip, MenuItem, Checkbox, ListItemText, makeStyles, createStyles } from "@material-ui/core";
+
 import { isNullish } from "../core/models";
-import { SelectInput, ISelectInputProps } from "./select_input";
+import { ISelectInputProps, SelectInput } from "./select_input";
 
 interface IProps<T> extends ISelectInputProps<T> {
   selectedOptions: T[];

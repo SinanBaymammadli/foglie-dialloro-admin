@@ -1,7 +1,7 @@
 import { ApiClient, apiClient } from "../../../core/api_client";
-import { ICRUDRepo } from "../../../core/models";
-import { ICategory, ICategoryForm, categoryFromJson, categoryToJson } from "./entities";
 import { generateCrudRepoFactory } from "../../../core/crud";
+import { ICRUDRepo } from "../../../core/models";
+import { categoryFromJson, categoryToJson, ICategory, ICategoryForm } from "./entities";
 
 interface ICategoryRepo extends ICRUDRepo<ICategory, ICategoryForm> {}
 

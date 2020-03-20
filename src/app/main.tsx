@@ -1,20 +1,21 @@
 import React, { useEffect } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { ROUTES } from "./routes";
-import { Layout } from "./layout";
 import { useDispatch, useSelector } from "react-redux";
-import { IAppReduxState } from "./redux/store";
-import { IAsyncData } from "./core/models";
+import { Redirect, Route, Switch } from "react-router-dom";
+
 import { LoadingScreen } from "./components/loading_screen";
-import { authRedux } from "./modules/auth/ui/state/state";
+import { IAsyncData } from "./core/models";
 import { isLoading } from "./core/redux";
+import { Layout } from "./layout";
 import { LoginPage } from "./modules/auth/ui/pages/login_page";
-import { UserMainPage } from "./modules/user/ui/pages/main_page";
-import { ProfileMainPage } from "./modules/profile/ui/pages/main_page";
-import { MemberMainPage } from "./modules/members/ui/pages/main_page";
+import { authRedux } from "./modules/auth/ui/state/state";
 import { CategoryMainPage } from "./modules/category/ui/pages/main_page";
+import { MemberMainPage } from "./modules/members/ui/pages/main_page";
 import { PostMainPage } from "./modules/post/ui/pages/main_page";
+import { ProfileMainPage } from "./modules/profile/ui/pages/main_page";
 import { ProjectMainPage } from "./modules/project/ui/pages/main_page";
+import { UserMainPage } from "./modules/user/ui/pages/main_page";
+import { IAppReduxState } from "./redux/store";
+import { ROUTES } from "./routes";
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();

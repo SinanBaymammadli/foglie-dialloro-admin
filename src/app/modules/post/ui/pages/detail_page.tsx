@@ -1,13 +1,14 @@
+import { Grid, Table, TableBody, TableCell, TableRow } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IAppReduxState } from "../../../../redux/store";
-import { useRouteMatch, useHistory } from "react-router-dom";
-import { IAsyncData } from "../../../../core/models";
-import { postReduxActions } from "../state/state";
-import { IPost } from "../../data/entities";
+import { useHistory, useRouteMatch } from "react-router-dom";
+
 import { DetailTable } from "../../../../components/detail_table";
+import { IAsyncData } from "../../../../core/models";
+import { IAppReduxState } from "../../../../redux/store";
 import { ROUTES } from "../../../../routes";
-import { Table, TableBody, TableRow, TableCell, Grid } from "@material-ui/core";
+import { IPost } from "../../data/entities";
+import { postReduxActions } from "../state/state";
 
 export const PostDetailPage: React.FC = () => {
   const match = useRouteMatch<{ id: string }>();

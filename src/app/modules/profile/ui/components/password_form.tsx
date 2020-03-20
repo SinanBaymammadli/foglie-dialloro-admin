@@ -1,11 +1,12 @@
-import React from "react";
-import { IFormProps } from "../../../../core/models";
-import { IPasswordForm, passwordFormValidation } from "../../data/entities";
-import { isPending } from "../../../../core/redux";
 import Grid from "@material-ui/core/Grid";
+import React from "react";
+
 import { Form } from "../../../../components/form";
 import { FormButton } from "../../../../components/form_button";
 import { TextInput } from "../../../../components/text_input";
+import { IFormProps } from "../../../../core/models";
+import { isPending } from "../../../../core/redux";
+import { IPasswordForm, passwordFormValidation } from "../../data/entities";
 
 interface IProps extends IFormProps<IPasswordForm> {}
 

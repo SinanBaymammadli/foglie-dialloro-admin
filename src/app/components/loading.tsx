@@ -1,6 +1,7 @@
-import React from "react";
+import { createStyles, makeStyles } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { makeStyles, createStyles } from "@material-ui/core";
+import React from "react";
+
 import { Maybe } from "../core/models";
 
 const useStyles = makeStyles(() =>

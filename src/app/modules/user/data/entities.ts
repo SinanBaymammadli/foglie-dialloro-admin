@@ -1,5 +1,6 @@
 import * as Yup from "yup";
-import { IBasicEntity, basicEntityFromJson } from "../../../core/models";
+
+import { basicEntityFromJson, IBasicEntity } from "../../../core/models";
 
 interface IUserBase {
   name: string;

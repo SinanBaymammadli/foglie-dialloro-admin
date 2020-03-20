@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IAppReduxState } from "../../../../redux/store";
 import { useHistory } from "react-router-dom";
-import { ROUTES } from "../../../../routes";
-import { ProjectForm } from "../components/form";
+
 import { IAsyncData } from "../../../../core/models";
-import { projectReduxActions } from "../state/state";
+import { IAppReduxState } from "../../../../redux/store";
+import { ROUTES } from "../../../../routes";
 import { IProjectForm } from "../../data/entities";
+import { ProjectForm } from "../components/form";
+import { projectReduxActions } from "../state/state";
 
 export const ProjectCreatePage: React.FC = () => {
   const dispatch = useDispatch();

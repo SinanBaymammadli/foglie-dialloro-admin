@@ -1,16 +1,17 @@
 import * as Yup from "yup";
+
+import { fileValidation } from "../../../core/file";
 import {
-  IBasicEntity,
   basicEntityFromJson,
+  generateImage,
+  IBasicEntity,
+  IImage,
   IMultiLang,
-  multiLangValidation,
+  Maybe,
   multiLangFromJson,
   multiLangToJson,
-  Maybe,
-  IImage,
-  generateImage,
+  multiLangValidation,
 } from "../../../core/models";
-import { fileValidation } from "../../../core/file";
 
 interface IMemberBase {
   firstName: IMultiLang;

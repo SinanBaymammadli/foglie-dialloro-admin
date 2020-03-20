@@ -1,11 +1,12 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import { UserListPage } from "./list_page";
-import { UserCreatePage } from "./create_page";
+import { Route, Switch } from "react-router-dom";
+
+import { Routing } from "../../../../core/routing";
 // import { UserEditPage } from "./edit_page";
 import { ROUTES } from "../../../../routes";
-import { Routing } from "../../../../core/routing";
+import { UserCreatePage } from "./create_page";
 import { UserDetailPage } from "./detail_page";
+import { UserListPage } from "./list_page";
 
 export const UserMainPage: React.FC = () => {
   return (

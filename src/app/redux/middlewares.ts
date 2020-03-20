@@ -1,10 +1,11 @@
 import isPromise from "is-promise";
+
+import { IError } from "../core/models";
 import {
+  generateErrorActionTypeName,
   generatePendingActionTypeName,
   generateSuccessActionTypeName,
-  generateErrorActionTypeName,
 } from "../core/redux";
-import { IError } from "../core/models";
 
 const isFunction = (f: any) => typeof f === "function";
 

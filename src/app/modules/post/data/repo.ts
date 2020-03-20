@@ -1,7 +1,7 @@
 import { ApiClient, apiClient } from "../../../core/api_client";
+import { generateCrudRepoFactory } from "../../../core/crud";
 import { ICRUDRepo } from "../../../core/models";
 import { IPost, IPostForm, postFromJson, postToJson } from "./entities";
-import { generateCrudRepoFactory } from "../../../core/crud";
 
 interface IPostRepo extends ICRUDRepo<IPost, IPostForm> {}
 

@@ -1,9 +1,9 @@
-import React from "react";
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { makeStyles, createStyles, Theme } from "@material-ui/core";
 
 interface IProps {
   icon: JSX.Element;

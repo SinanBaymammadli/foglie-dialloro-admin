@@ -1,5 +1,6 @@
-import { IAsyncData, EProcessStatus, Maybe, IError, ICRUDRepo, IId } from "./models";
 import { Reducer } from "redux";
+
+import { EProcessStatus, IAsyncData, ICRUDRepo, IError, IId, Maybe } from "./models";
 
 export function generateErrorActionTypeName(actionTypeName: string | symbol): string {
   return actionTypeName.toString() + "_ERROR";

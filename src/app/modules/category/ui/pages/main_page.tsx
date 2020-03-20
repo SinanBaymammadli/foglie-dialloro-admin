@@ -1,11 +1,12 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import { CategoryListPage } from "./list_page";
-import { CategoryCreatePage } from "./create_page";
-import { CategoryEditPage } from "./edit_page";
-import { ROUTES } from "../../../../routes";
+import { Route, Switch } from "react-router-dom";
+
 import { Routing } from "../../../../core/routing";
+import { ROUTES } from "../../../../routes";
+import { CategoryCreatePage } from "./create_page";
 import { CategoryDetailPage } from "./detail_page";
+import { CategoryEditPage } from "./edit_page";
+import { CategoryListPage } from "./list_page";
 
 export const CategoryMainPage: React.FC = () => {
   return (

@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
+
 import { IAsyncData } from "../../../../core/models";
-import { IAsyncReduxAction, asyncItemReducerGenerator } from "../../../../core/redux";
-import { AuthRepoImpl } from "../../data/repo";
+import { asyncItemReducerGenerator, IAsyncReduxAction } from "../../../../core/redux";
 import { ILoginForm } from "../../data/entites";
+import { AuthRepoImpl } from "../../data/repo";
 
 enum EAuthenticationActionType {
   IS_LOGGED_IN = "IS_LOGGED_IN",

@@ -1,10 +1,11 @@
-import React from "react";
-import { Field, FieldProps } from "formik";
-import { FormControl, InputLabel, Select, FormHelperText, Box, MenuItem } from "@material-ui/core";
+import { Box, FormControl, FormHelperText, InputLabel, MenuItem, Select } from "@material-ui/core";
 import { SelectProps } from "@material-ui/core/Select";
+import { Field, FieldProps } from "formik";
+import React from "react";
+
 import { IAsyncData, isAsyncData } from "../core/models";
-import { Loading } from "./loading";
 import { isPending } from "../core/redux";
+import { Loading } from "./loading";
 
 export interface ISelectInputProps<T> extends SelectProps {
   options: IAsyncData<T[]> | T[];

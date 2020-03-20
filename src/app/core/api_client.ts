@@ -1,6 +1,7 @@
-import axios, { AxiosInstance, AxiosError } from "axios";
-import { ROUTES } from "../routes";
+import axios, { AxiosError, AxiosInstance } from "axios";
+
 import { AuthRepoImpl } from "../modules/auth/data/repo";
+import { ROUTES } from "../routes";
 
 export interface ApiClient extends AxiosInstance {}
 

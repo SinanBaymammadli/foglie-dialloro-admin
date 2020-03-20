@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { IAppReduxState } from "../../../../redux/store";
-import { useRouteMatch, useHistory } from "react-router-dom";
-import { PostForm } from "../components/form";
-import { ROUTES } from "../../../../routes";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useRouteMatch } from "react-router-dom";
+
 import { IAsyncData } from "../../../../core/models";
-import { IPostForm, IPost, postEditFormValidation } from "../../data/entities";
-import { postReduxActions } from "../state/state";
 import { Routing } from "../../../../core/routing";
+import { IAppReduxState } from "../../../../redux/store";
+import { ROUTES } from "../../../../routes";
+import { IPost, IPostForm, postEditFormValidation } from "../../data/entities";
+import { PostForm } from "../components/form";
+import { postReduxActions } from "../state/state";
 
 export const PostEditPage: React.FC = () => {
   const match = useRouteMatch<{ id: string }>();
