@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 import { DetailTable } from "../../../../components/detail_table";
+import { Image } from "../../../../components/image";
 import { IAsyncData } from "../../../../core/models";
 import { IAppReduxState } from "../../../../redux/store";
 import { ROUTES } from "../../../../routes";
@@ -29,22 +30,66 @@ export const PostDetailPage: React.FC = () => {
 
   return (
     <Grid container justify="center">
-      <Grid item md={8} lg={6}>
-        <DetailTable branch={postDetailBranch} route={ROUTES.post} onDelete={deletePost} deleteBranch={deleteBranch}>
-          <Table size="medium" className="detail-table">
-            <TableBody>
-              <TableRow>
-                <TableCell>Ad</TableCell>
-                <TableCell>{postDetailBranch.data?.name.az}</TableCell>
-              </TableRow>
+      <Grid item xs={12} md={8} lg={6}>
+        {postDetailBranch.data && (
+          <DetailTable branch={postDetailBranch} route={ROUTES.post} onDelete={deletePost} deleteBranch={deleteBranch}>
+            <Table size="medium" className="detail-table">
+              <TableBody>
+                <TableRow>
+                  <TableCell>Banner</TableCell>
+                  <TableCell>
+                    <Image image={postDetailBranch.data?.banner} />
+                  </TableCell>
+                </TableRow>
 
-              <TableRow>
-                <TableCell>Email</TableCell>
-                <TableCell>{postDetailBranch.data?.name.en}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </DetailTable>
+                <TableRow>
+                  <TableCell>Title</TableCell>
+                  <TableCell>{postDetailBranch.data?.title.az}</TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Description</TableCell>
+                  <TableCell>{postDetailBranch.data?.description.az}</TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Content</TableCell>
+                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.description.az }} />
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Title</TableCell>
+                  <TableCell>{postDetailBranch.data?.title.en}</TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Description</TableCell>
+                  <TableCell>{postDetailBranch.data?.description.en}</TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Content</TableCell>
+                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.description.en }} />
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Title</TableCell>
+                  <TableCell>{postDetailBranch.data?.title.ru}</TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Description</TableCell>
+                  <TableCell>{postDetailBranch.data?.description.ru}</TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Content</TableCell>
+                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.description.ru }} />
+                </TableRow>
+              </TableBody>
+            </Table>
+          </DetailTable>
+        )}
       </Grid>
     </Grid>
   );

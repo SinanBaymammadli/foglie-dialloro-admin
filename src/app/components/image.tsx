@@ -7,5 +7,5 @@ interface IProps {
 }
 
 export const Image: React.FC<IProps> = ({ image }) => {
-  return <img src={image?.url} width={image?.width} height={image?.height} />;
+  return <img src={image?.url} width={image?.width} height={image?.height} alt="" />;
 };

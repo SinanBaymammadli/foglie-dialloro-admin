@@ -35,16 +35,14 @@ export const PostListPage: React.FC = () => {
         deleteBranch={deleteBranch}
         renderHeader={() => (
           <>
-            <TableCell>First name</TableCell>
-            <TableCell>Last name</TableCell>
-            <TableCell>Position</TableCell>
+            <TableCell>Title</TableCell>
+            <TableCell>Description</TableCell>
           </>
         )}
         renderRow={(post) => (
           <>
-            <TableCell>{post.name.az}</TableCell>
-            <TableCell>{post.name.az}</TableCell>
-            <TableCell>{post.name.az}</TableCell>
+            <TableCell>{post.title.az}</TableCell>
+            <TableCell>{post.description.az}</TableCell>
           </>
         )}
       />

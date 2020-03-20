@@ -9,7 +9,7 @@ const URL = "v1/posts";
 
 const PostRepoImplFactory = (apiClient: ApiClient): IPostRepo => {
   const r: IPostRepo = {
-    ...generateCrudRepoFactory<IPost, IPostForm>(apiClient, URL, postFromJson, postToJson),
+    ...generateCrudRepoFactory<IPost, IPostForm>(apiClient, URL, postFromJson, postToJson, true),
   };
 
   return r;

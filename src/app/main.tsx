@@ -64,7 +64,7 @@ export const Main: React.FC = () => {
             </Route>
 
             <Route path="*">
-              <Redirect to="/" />
+              <Redirect to={ROUTES.about} />
             </Route>
           </Switch>
         </Layout>
