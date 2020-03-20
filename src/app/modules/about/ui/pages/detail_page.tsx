@@ -31,9 +31,14 @@ export const AboutDetailPage: React.FC = () => {
   return (
     <Grid container justify="center">
       <Grid item xs={12} md={8} lg={6}>
-        <DetailTable branch={aboutDetailBranch} route={ROUTES.about} onDelete={deleteAbout} deleteBranch={deleteBranch}>
-          <Table size="medium" className="detail-table">
-            {aboutDetailBranch.data && (
+        {aboutDetailBranch.data && (
+          <DetailTable
+            branch={aboutDetailBranch}
+            route={ROUTES.about}
+            onDelete={deleteAbout}
+            deleteBranch={deleteBranch}
+          >
+            <Table size="medium" className="detail-table">
               <TableBody>
                 <TableRow>
                   <TableCell>Photo</TableCell>
@@ -57,9 +62,9 @@ export const AboutDetailPage: React.FC = () => {
                   <TableCell dangerouslySetInnerHTML={{ __html: aboutDetailBranch.data?.text.ru }} />
                 </TableRow>
               </TableBody>
-            )}
-          </Table>
-        </DetailTable>
+            </Table>
+          </DetailTable>
+        )}
       </Grid>
     </Grid>
   );

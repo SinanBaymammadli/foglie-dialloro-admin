@@ -14,6 +14,7 @@ import {
 } from "../../../core/models";
 
 interface IAboutBase {
+  title: IMultiLang;
   text: IMultiLang;
   file: Maybe<File>;
 }
@@ -25,6 +26,7 @@ export interface IAbout extends IAboutBase, IBasicEntity {
 }
 
 const aboutCommonValidation = {
+  title: multiLangValidation.required(),
   text: multiLangValidation.required(),
 };
 
@@ -41,6 +43,7 @@ export const aboutEditFormValidation = Yup.object<IAboutForm>({
 export const aboutFromJson = (json: any): IAbout => {
   const e: IAbout = {
     ...basicEntityFromJson(json),
+    title: multiLangFromJson(json, "title"),
     text: multiLangFromJson(json, "text"),
     file: null,
     image: generateImage(json.image),
@@ -51,6 +54,7 @@ export const aboutFromJson = (json: any): IAbout => {
 
 export const aboutToJson = (form: IAboutForm) => {
   return {
+    ...multiLangToJson(form.title, "title"),
     ...multiLangToJson(form.text, "text"),
     file: form.file,
   };
