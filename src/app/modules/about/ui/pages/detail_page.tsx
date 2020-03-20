@@ -48,13 +48,28 @@ export const AboutDetailPage: React.FC = () => {
                 </TableRow>
 
                 <TableRow>
+                  <TableCell>Title az</TableCell>
+                  <TableCell>{aboutDetailBranch.data?.title.az}</TableCell>
+                </TableRow>
+
+                <TableRow>
                   <TableCell>Text az</TableCell>
                   <TableCell dangerouslySetInnerHTML={{ __html: aboutDetailBranch.data?.text.az }} />
                 </TableRow>
 
                 <TableRow>
+                  <TableCell>Title en</TableCell>
+                  <TableCell>{aboutDetailBranch.data?.title.en}</TableCell>
+                </TableRow>
+
+                <TableRow>
                   <TableCell>Text en</TableCell>
                   <TableCell dangerouslySetInnerHTML={{ __html: aboutDetailBranch.data?.text.en }} />
+                </TableRow>
+
+                <TableRow>
+                  <TableCell>Title ru</TableCell>
+                  <TableCell>{aboutDetailBranch.data?.title.ru}</TableCell>
                 </TableRow>
 
                 <TableRow>

@@ -36,6 +36,9 @@ export const AboutListPage: React.FC = () => {
         deleteBranch={deleteBranch}
         renderHeader={() => (
           <>
+            <TableCell>Title az</TableCell>
+            <TableCell>Title en</TableCell>
+            <TableCell>Title ru</TableCell>
             <TableCell>Text az</TableCell>
             <TableCell>Text en</TableCell>
             <TableCell>Text ru</TableCell>
@@ -43,6 +46,9 @@ export const AboutListPage: React.FC = () => {
         )}
         renderRow={(about) => (
           <>
+            <TableCell>{about.title.az}</TableCell>
+            <TableCell>{about.title.en}</TableCell>
+            <TableCell>{about.title.ru}</TableCell>
             <TableCell>{about.text.az}</TableCell>
             <TableCell>{about.text.en}</TableCell>
             <TableCell>{about.text.ru}</TableCell>
