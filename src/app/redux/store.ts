@@ -2,6 +2,7 @@ import { Action, applyMiddleware, combineReducers, createStore, Reducer } from "
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk, { ThunkDispatch } from "redux-thunk";
 
+import { AboutReducers, IAboutReduxState } from "../modules/about/ui/state/state";
 import { AuthenticationReducers, IAuthenticationReduxState } from "../modules/auth/ui/state/state";
 import { CategoryReducers, ICategoryReduxState } from "../modules/category/ui/state/state";
 import { IMemberReduxState, MemberReducers } from "../modules/members/ui/state/state";
@@ -19,6 +20,7 @@ export interface IAppReduxState {
   category: ICategoryReduxState;
   post: IPostReduxState;
   project: IProjectReduxState;
+  about: IAboutReduxState;
 }
 
 export function getRootReducer(): Reducer<IAppReduxState> {
@@ -30,6 +32,7 @@ export function getRootReducer(): Reducer<IAppReduxState> {
     category: CategoryReducers,
     post: PostReducers,
     project: ProjectReducers,
+    about: AboutReducers,
   };
 
   return combineReducers<IAppReduxState>(reducersList);

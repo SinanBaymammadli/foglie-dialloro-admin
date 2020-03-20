@@ -1,4 +1,5 @@
 import "./index.css";
+import "react-quill/dist/quill.snow.css";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import React from "react";
