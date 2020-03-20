@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 import { DetailTable } from "../../../../components/detail_table";
+import { Image } from "../../../../components/image";
 import { IAsyncData } from "../../../../core/models";
 import { IAppReduxState } from "../../../../redux/store";
 import { ROUTES } from "../../../../routes";
@@ -29,7 +30,7 @@ export const MemberDetailPage: React.FC = () => {
 
   return (
     <Grid container justify="center">
-      <Grid item md={8} lg={6}>
+      <Grid item xs={12} md={8} lg={6}>
         <DetailTable
           branch={memberDetailBranch}
           route={ROUTES.members}
@@ -39,20 +40,46 @@ export const MemberDetailPage: React.FC = () => {
           <Table size="medium" className="detail-table">
             <TableBody>
               <TableRow>
-                <TableCell>Ad</TableCell>
-                <TableCell>{memberDetailBranch.data?.firstName.az}</TableCell>
-              </TableRow>
-
-              <TableRow>
-                <TableCell>Email</TableCell>
-                <TableCell>{memberDetailBranch.data?.lastName.az}</TableCell>
-              </TableRow>
-
-              <TableRow>
                 <TableCell>Photo</TableCell>
                 <TableCell>
-                  <img src={memberDetailBranch.data?.image.url} />
+                  <Image image={memberDetailBranch.data?.image} />
                 </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Name az</TableCell>
+                <TableCell>
+                  {memberDetailBranch.data?.firstName.az} {memberDetailBranch.data?.lastName.az}
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Name en</TableCell>
+                <TableCell>
+                  {memberDetailBranch.data?.firstName.en} {memberDetailBranch.data?.lastName.en}
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Name ru</TableCell>
+                <TableCell>
+                  {memberDetailBranch.data?.firstName.ru} {memberDetailBranch.data?.lastName.ru}
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Position az</TableCell>
+                <TableCell>{memberDetailBranch.data?.position.az}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Position en</TableCell>
+                <TableCell>{memberDetailBranch.data?.position.en}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Position ru</TableCell>
+                <TableCell>{memberDetailBranch.data?.position.ru}</TableCell>
               </TableRow>
             </TableBody>
           </Table>

@@ -35,16 +35,28 @@ export const MemberListPage: React.FC = () => {
         deleteBranch={deleteBranch}
         renderHeader={() => (
           <>
-            <TableCell>First name</TableCell>
-            <TableCell>Last name</TableCell>
-            <TableCell>Position</TableCell>
+            <TableCell>Name az</TableCell>
+            <TableCell>Name en</TableCell>
+            <TableCell>Name ru</TableCell>
+            <TableCell>Position az</TableCell>
+            <TableCell>Position en</TableCell>
+            <TableCell>Position ru</TableCell>
           </>
         )}
         renderRow={(member) => (
           <>
-            <TableCell>{member.firstName.az}</TableCell>
-            <TableCell>{member.lastName.az}</TableCell>
+            <TableCell>
+              {member.firstName.az} {member.lastName.az}
+            </TableCell>
+            <TableCell>
+              {member.firstName.en} {member.lastName.en}
+            </TableCell>
+            <TableCell>
+              {member.firstName.ru} {member.lastName.ru}
+            </TableCell>
             <TableCell>{member.position.az}</TableCell>
+            <TableCell>{member.position.en}</TableCell>
+            <TableCell>{member.position.ru}</TableCell>
           </>
         )}
       />

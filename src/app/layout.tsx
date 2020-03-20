@@ -98,11 +98,11 @@ export const Layout: React.FC<IProps> = (props: IProps) => {
       <Divider />
       <List disablePadding>
         <NavItem to={ROUTES.about} text="About" icon={<AppsIcon />} onClick={handleClose} />
-        <NavItem to={ROUTES.user} text="Users" icon={<AppsIcon />} onClick={handleClose} />
         <NavItem to={ROUTES.members} text="Members" icon={<AppsIcon />} onClick={handleClose} />
         <NavItem to={ROUTES.post} text="Posts" icon={<AppsIcon />} onClick={handleClose} />
         <NavItem to={ROUTES.category} text="Categories" icon={<AppsIcon />} onClick={handleClose} />
         <NavItem to={ROUTES.project} text="Projects" icon={<AppsIcon />} onClick={handleClose} />
+        <NavItem to={ROUTES.user} text="Users" icon={<AppsIcon />} onClick={handleClose} />
       </List>
     </div>
   );
