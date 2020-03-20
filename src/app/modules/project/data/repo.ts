@@ -9,7 +9,7 @@ const URL = "v1/projects";
 
 const ProjectRepoImplFactory = (apiClient: ApiClient): IProjectRepo => {
   const r: IProjectRepo = {
-    ...generateCrudRepoFactory<IProject, IProjectForm>(apiClient, URL, projectFromJson, projectToJson),
+    ...generateCrudRepoFactory<IProject, IProjectForm>(apiClient, URL, projectFromJson, projectToJson, true),
   };
 
   return r;

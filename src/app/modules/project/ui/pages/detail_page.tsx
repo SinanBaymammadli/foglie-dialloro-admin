@@ -39,13 +39,13 @@ export const ProjectDetailPage: React.FC = () => {
           <Table size="medium" className="detail-table">
             <TableBody>
               <TableRow>
-                <TableCell>Ad</TableCell>
-                <TableCell>{projectDetailBranch.data?.name.az}</TableCell>
+                <TableCell>Title</TableCell>
+                <TableCell>{projectDetailBranch.data?.title.az}</TableCell>
               </TableRow>
 
               <TableRow>
-                <TableCell>Email</TableCell>
-                <TableCell>{projectDetailBranch.data?.name.en}</TableCell>
+                <TableCell>Client</TableCell>
+                <TableCell>{projectDetailBranch.data?.client.en}</TableCell>
               </TableRow>
             </TableBody>
           </Table>
