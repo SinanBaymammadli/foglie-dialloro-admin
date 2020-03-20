@@ -12,6 +12,7 @@ import { authRedux } from "./modules/auth/ui/state/state";
 import { CategoryMainPage } from "./modules/category/ui/pages/main_page";
 import { MemberMainPage } from "./modules/members/ui/pages/main_page";
 import { PostMainPage } from "./modules/post/ui/pages/main_page";
+import { PricingMainPage } from "./modules/pricing/ui/pages/main_page";
 import { ProfileMainPage } from "./modules/profile/ui/pages/main_page";
 import { ProjectMainPage } from "./modules/project/ui/pages/main_page";
 import { UserMainPage } from "./modules/user/ui/pages/main_page";
@@ -61,6 +62,10 @@ export const Main: React.FC = () => {
 
             <Route path={ROUTES.about}>
               <AboutMainPage />
+            </Route>
+
+            <Route path={ROUTES.pricing}>
+              <PricingMainPage />
             </Route>
 
             <Route path="*">

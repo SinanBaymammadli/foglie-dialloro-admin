@@ -7,4 +7,5 @@ export const ROUTES = {
   post: "/posts",
   project: "/projects",
   about: "/about",
+  pricing: "/pricing",
 };

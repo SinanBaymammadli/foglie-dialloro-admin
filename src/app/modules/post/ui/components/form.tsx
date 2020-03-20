@@ -1,6 +1,5 @@
 import { Grid } from "@material-ui/core";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 
 import { FileInput } from "../../../../components/file_input";
 import { Form } from "../../../../components/form";
@@ -10,18 +9,12 @@ import { TextInput } from "../../../../components/text_input";
 import { IFormProps } from "../../../../core/models";
 import { isPending } from "../../../../core/redux";
 import { IPostForm, postFormValidation } from "../../data/entities";
-import { postReduxActions } from "../state/state";
 
 interface IProps extends IFormProps<IPostForm> {}
 
 export const PostForm: React.FC<IProps> = (props: IProps) => {
   const { branch, submitTitle } = props;
   const loading = isPending(branch);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(postReduxActions.getList());
-  }, [dispatch]);
 
   return (
     <Grid container justify="center">
