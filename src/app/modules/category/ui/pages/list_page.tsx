@@ -35,16 +35,16 @@ export const CategoryListPage: React.FC = () => {
         deleteBranch={deleteBranch}
         renderHeader={() => (
           <>
-            <TableCell>First name</TableCell>
-            <TableCell>Last name</TableCell>
-            <TableCell>Position</TableCell>
+            <TableCell>Name az</TableCell>
+            <TableCell>Name en</TableCell>
+            <TableCell>Name ru</TableCell>
           </>
         )}
         renderRow={(category) => (
           <>
             <TableCell>{category.name.az}</TableCell>
-            <TableCell>{category.name.az}</TableCell>
-            <TableCell>{category.name.az}</TableCell>
+            <TableCell>{category.name.en}</TableCell>
+            <TableCell>{category.name.ru}</TableCell>
           </>
         )}
       />

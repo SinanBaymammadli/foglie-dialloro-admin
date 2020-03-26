@@ -29,7 +29,7 @@ export const CategoryDetailPage: React.FC = () => {
 
   return (
     <Grid container justify="center">
-      <Grid item md={8} lg={6}>
+      <Grid item xs={12} md={8} lg={6}>
         <DetailTable
           branch={categoryDetailBranch}
           route={ROUTES.category}
@@ -39,13 +39,23 @@ export const CategoryDetailPage: React.FC = () => {
           <Table size="medium" className="detail-table">
             <TableBody>
               <TableRow>
-                <TableCell>Ad</TableCell>
+                <TableCell>Name az</TableCell>
                 <TableCell>{categoryDetailBranch.data?.name.az}</TableCell>
               </TableRow>
 
               <TableRow>
-                <TableCell>Email</TableCell>
+                <TableCell>Name en</TableCell>
                 <TableCell>{categoryDetailBranch.data?.name.en}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Name ru</TableCell>
+                <TableCell>{categoryDetailBranch.data?.name.ru}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Sub categories</TableCell>
+                <TableCell>{categoryDetailBranch.data?.children?.map((c) => c.name.az)}</TableCell>
               </TableRow>
             </TableBody>
           </Table>

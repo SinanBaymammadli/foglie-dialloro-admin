@@ -49,6 +49,6 @@ export const categoryFromJson = (json: any): ICategory => {
 export const categoryToJson = (form: ICategoryForm) => {
   return {
     ...multiLangToJson(form.name, "name"),
-    parent: { id: form.parentId },
+    parent: { id: form.parentId || null },
   };
 };
