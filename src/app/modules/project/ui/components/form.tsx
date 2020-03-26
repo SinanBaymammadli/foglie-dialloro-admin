@@ -63,7 +63,7 @@ export const ProjectForm: React.FC<IProps> = (props: IProps) => {
           validationSchema={projectFormValidation}
           {...props}
         >
-          {({ setFieldValue }) => (
+          {({ setFieldValue, values }) => (
             <>
               <FileInput label="Image" name="file" setFieldValue={setFieldValue} />
 
@@ -91,6 +91,7 @@ export const ProjectForm: React.FC<IProps> = (props: IProps) => {
                 options={categoryListBranch}
                 label="Category"
                 name="categoryId"
+                value={values.categoryId}
                 renderLabel={(e) => e.name.az}
               />
 

@@ -39,7 +39,7 @@ export const CategoryForm: React.FC<IProps> = (props: IProps) => {
           validationSchema={categoryFormValidation}
           {...props}
         >
-          {() => (
+          {({ values }) => (
             <>
               <TextInput label="Name Az" name="name.az" />
               <TextInput label="Name En" name="name.en" />
@@ -49,6 +49,7 @@ export const CategoryForm: React.FC<IProps> = (props: IProps) => {
                 options={categoryListBranch}
                 label="Parent"
                 name="parentId"
+                value={values.parentId}
                 renderLabel={(e) => e.name.az}
               />
 
