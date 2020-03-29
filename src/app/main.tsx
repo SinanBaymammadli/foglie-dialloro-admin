@@ -15,6 +15,7 @@ import { PostMainPage } from "./modules/post/ui/pages/main_page";
 import { PricingMainPage } from "./modules/pricing/ui/pages/main_page";
 import { ProfileMainPage } from "./modules/profile/ui/pages/main_page";
 import { ProjectMainPage } from "./modules/project/ui/pages/main_page";
+import { SliderMainPage } from "./modules/slider/ui/pages/main_page";
 import { UserMainPage } from "./modules/user/ui/pages/main_page";
 import { IAppReduxState } from "./redux/store";
 import { ROUTES } from "./routes";
@@ -66,6 +67,10 @@ export const Main: React.FC = () => {
 
             <Route path={ROUTES.pricing}>
               <PricingMainPage />
+            </Route>
+
+            <Route path={ROUTES.slider}>
+              <SliderMainPage />
             </Route>
 
             <Route path="*">

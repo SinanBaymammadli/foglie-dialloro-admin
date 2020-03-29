@@ -10,6 +10,7 @@ import { IPostReduxState, PostReducers } from "../modules/post/ui/state/state";
 import { IPricingReduxState, PricingReducers } from "../modules/pricing/ui/state/state";
 import { IProfileReduxState, ProfileReducers } from "../modules/profile/ui/state/state";
 import { IProjectReduxState, ProjectReducers } from "../modules/project/ui/state/state";
+import { ISliderReduxState, SliderReducers } from "../modules/slider/ui/state/state";
 import { IUserReduxState, UserReducers } from "../modules/user/ui/state/state";
 import { confirmationMiddleware, reduxPromiseMiddleware } from "./middlewares";
 
@@ -23,6 +24,7 @@ export interface IAppReduxState {
   project: IProjectReduxState;
   about: IAboutReduxState;
   pricing: IPricingReduxState;
+  slider: ISliderReduxState;
 }
 
 export function getRootReducer(): Reducer<IAppReduxState> {
@@ -36,6 +38,7 @@ export function getRootReducer(): Reducer<IAppReduxState> {
     project: ProjectReducers,
     about: AboutReducers,
     pricing: PricingReducers,
+    slider: SliderReducers,
   };
 
   return combineReducers<IAppReduxState>(reducersList);

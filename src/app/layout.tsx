@@ -104,6 +104,7 @@ export const Layout: React.FC<IProps> = (props: IProps) => {
         <NavItem to={ROUTES.project} text="Projects" icon={<AppsIcon />} onClick={handleClose} />
         <NavItem to={ROUTES.pricing} text="Pricing" icon={<AppsIcon />} onClick={handleClose} />
         <NavItem to={ROUTES.user} text="Users" icon={<AppsIcon />} onClick={handleClose} />
+        <NavItem to={ROUTES.slider} text="Slider" icon={<AppsIcon />} onClick={handleClose} />
       </List>
     </div>
   );
