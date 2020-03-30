@@ -9,4 +9,5 @@ export const ROUTES = {
   about: "/about",
   pricing: "/pricing",
   slider: "/slider",
+  file: "/files",
 };

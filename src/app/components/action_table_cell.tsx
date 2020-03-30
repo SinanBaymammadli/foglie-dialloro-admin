@@ -21,22 +21,18 @@ export const ActionTableCell: React.FC<IProps> = ({ onDelete, route, id }: IProp
         e.stopPropagation();
       }}
     >
-      {route !== undefined ? (
+      {route && (
         <Box mr={1} component="span">
           <IconButton to={Routing.generateEditRoute(route, id)} component={Link}>
             <EditIcon />
           </IconButton>
         </Box>
-      ) : (
-        undefined
       )}
 
-      {onDelete !== undefined ? (
+      {onDelete && (
         <IconButton onClick={() => onDelete(id)}>
           <DeleteIcon />
         </IconButton>
-      ) : (
-        undefined
       )}
     </TableCell>
   );

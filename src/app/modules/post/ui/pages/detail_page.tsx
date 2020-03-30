@@ -54,7 +54,7 @@ export const PostDetailPage: React.FC = () => {
 
                 <TableRow>
                   <TableCell>Content</TableCell>
-                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.description.az }} />
+                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.content.az }} />
                 </TableRow>
 
                 <TableRow>
@@ -69,7 +69,7 @@ export const PostDetailPage: React.FC = () => {
 
                 <TableRow>
                   <TableCell>Content</TableCell>
-                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.description.en }} />
+                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.content.en }} />
                 </TableRow>
 
                 <TableRow>
@@ -84,7 +84,7 @@ export const PostDetailPage: React.FC = () => {
 
                 <TableRow>
                   <TableCell>Content</TableCell>
-                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.description.ru }} />
+                  <TableCell dangerouslySetInnerHTML={{ __html: postDetailBranch.data?.content.ru }} />
                 </TableRow>
               </TableBody>
             </Table>

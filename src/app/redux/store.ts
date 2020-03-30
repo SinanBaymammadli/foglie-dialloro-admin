@@ -5,6 +5,7 @@ import thunk, { ThunkDispatch } from "redux-thunk";
 import { AboutReducers, IAboutReduxState } from "../modules/about/ui/state/state";
 import { AuthenticationReducers, IAuthenticationReduxState } from "../modules/auth/ui/state/state";
 import { CategoryReducers, ICategoryReduxState } from "../modules/category/ui/state/state";
+import { FileReducers, IFileReduxState } from "../modules/file/ui/state/state";
 import { IMemberReduxState, MemberReducers } from "../modules/members/ui/state/state";
 import { IPostReduxState, PostReducers } from "../modules/post/ui/state/state";
 import { IPricingReduxState, PricingReducers } from "../modules/pricing/ui/state/state";
@@ -25,6 +26,7 @@ export interface IAppReduxState {
   about: IAboutReduxState;
   pricing: IPricingReduxState;
   slider: ISliderReduxState;
+  file: IFileReduxState;
 }
 
 export function getRootReducer(): Reducer<IAppReduxState> {
@@ -39,6 +41,7 @@ export function getRootReducer(): Reducer<IAppReduxState> {
     about: AboutReducers,
     pricing: PricingReducers,
     slider: SliderReducers,
+    file: FileReducers,
   };
 
   return combineReducers<IAppReduxState>(reducersList);

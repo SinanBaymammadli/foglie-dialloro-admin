@@ -1,7 +1,7 @@
 import { Box, FormHelperText, InputLabel } from "@material-ui/core";
+import { Editor } from "@tinymce/tinymce-react";
 import { Field, FieldProps } from "formik";
 import React from "react";
-import ReactQuill from "react-quill";
 
 interface IProps {
   label: string;
@@ -21,11 +21,30 @@ export const RichEditor: React.FC<IProps> = ({ label, name, setFieldValue }: IPr
               <InputLabel>{label}</InputLabel>
             </Box>
 
-            <ReactQuill
+            {/* <ReactQuill
               value={meta.value}
               onChange={(text) => {
                 setFieldValue(name, text);
               }}
+            /> */}
+
+            <Editor
+              initialValue={meta.value}
+              init={{
+                height: 500,
+                menubar: false,
+                plugins: [
+                  "advlist autolink lists link image charmap print preview anchor",
+                  "searchreplace visualblocks code fullscreen",
+                  "insertdatetime media table paste code help wordcount image",
+                ],
+                toolbar:
+                  "undo redo | formatselect | bold italic backcolor | \
+                 alignleft aligncenter alignright alignjustify | \
+                 media image | \
+                 bullist numlist outdent indent | removeformat | help",
+              }}
+              onEditorChange={(value) => setFieldValue(name, value)}
             />
 
             {hasError && <FormHelperText error>{meta.error?.toString()}</FormHelperText>}

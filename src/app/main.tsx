@@ -10,6 +10,7 @@ import { AboutMainPage } from "./modules/about/ui/pages/main_page";
 import { LoginPage } from "./modules/auth/ui/pages/login_page";
 import { authRedux } from "./modules/auth/ui/state/state";
 import { CategoryMainPage } from "./modules/category/ui/pages/main_page";
+import { FileMainPage } from "./modules/file/ui/pages/main_page";
 import { MemberMainPage } from "./modules/members/ui/pages/main_page";
 import { PostMainPage } from "./modules/post/ui/pages/main_page";
 import { PricingMainPage } from "./modules/pricing/ui/pages/main_page";
@@ -37,6 +38,10 @@ export const Main: React.FC = () => {
       ) : isLoggedInBranch.data ? (
         <Layout>
           <Switch>
+            <Route path={ROUTES.file}>
+              <FileMainPage />
+            </Route>
+
             <Route path={ROUTES.user}>
               <UserMainPage />
             </Route>
