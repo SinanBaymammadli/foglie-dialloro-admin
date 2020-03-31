@@ -9,7 +9,7 @@ const URL = "v1/members";
 
 const MemberRepoImplFactory = (apiClient: ApiClient): IMemberRepo => {
   const r: IMemberRepo = {
-    ...generateCrudRepoFactory<IMember, IMemberForm>(apiClient, URL, memberFromJson, memberToJson, true),
+    ...generateCrudRepoFactory<IMember, IMemberForm>(apiClient, URL, memberFromJson, memberToJson),
   };
 
   return r;

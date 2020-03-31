@@ -1,13 +1,11 @@
-import * as Yup from "yup";
+import * as yup from "yup";
 
-import { fileValidation } from "../../../core/file";
 import {
   basicEntityFromJson,
   generateImage,
   IBasicEntity,
   IImage,
   IMultiLang,
-  Maybe,
   multiLangFromJson,
   multiLangToJson,
   multiLangValidation,
@@ -17,29 +15,28 @@ interface IPostBase {
   title: IMultiLang;
   description: IMultiLang;
   content: IMultiLang;
-  file: Maybe<File>;
+  imageId: string;
 }
 
 export interface IPostForm extends IPostBase {}
 
 export interface IPost extends IPostBase, IBasicEntity {
-  banner: IImage;
+  image: IImage;
 }
 
 const postCommonValidation = {
   title: multiLangValidation.required(),
   description: multiLangValidation.required(),
   content: multiLangValidation.required(),
+  imageId: yup.string().required(),
 };
 
-export const postFormValidation = Yup.object<IPostForm>({
+export const postFormValidation = yup.object<IPostForm>({
   ...postCommonValidation,
-  file: fileValidation.required(),
 });
 
-export const postEditFormValidation = Yup.object<IPostForm>({
+export const postEditFormValidation = yup.object<IPostForm>({
   ...postCommonValidation,
-  file: fileValidation,
 });
 
 export const postFromJson = (json: any): IPost => {
@@ -48,8 +45,8 @@ export const postFromJson = (json: any): IPost => {
     title: multiLangFromJson(json, "title"),
     description: multiLangFromJson(json, "description"),
     content: multiLangFromJson(json, "content"),
-    file: null,
-    banner: generateImage(json.banner),
+    imageId: json.image.id,
+    image: generateImage(json.image),
   };
 
   return e;
@@ -60,6 +57,8 @@ export const postToJson = (form: IPostForm) => {
     ...multiLangToJson(form.title, "title"),
     ...multiLangToJson(form.description, "description"),
     ...multiLangToJson(form.content, "content"),
-    file: form.file,
+    image: {
+      id: form.imageId,
+    },
   };
 };

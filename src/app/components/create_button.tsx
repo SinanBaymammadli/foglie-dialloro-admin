@@ -19,7 +19,7 @@ export const CreateButton: React.FC<IProps> = ({ route }: IProps) => {
         to={Routing.generateCreateRoute(route)}
         component={Link}
       >
-        Yarat
+        Create
       </Button>
     </Box>
   );

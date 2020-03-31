@@ -27,23 +27,19 @@ export const FileInput: React.FC<IProps> = ({ name, setFieldValue }: IProps) => 
                 accept="image/*"
                 type="file"
                 name={name}
+                multiple
                 onChange={(e) => {
-                  const file = e.target.files?.[0];
-                  console.log(file);
-                  setFieldValue(name, file);
+                  setFieldValue(name, e.target.files);
                 }}
-                onBlur={field.onBlur}
               /> */}
               <ImageUploader
                 withIcon={true}
                 withPreview
+                name={name}
                 buttonText="Choose images"
-                // defaultImages={[defaultImage]}
-                label="Max file size: 0.5mb. Accepted: '.jpg', '.png', '.gif'"
-                onChange={(files) => {
-                  setFieldValue(name, files[0]);
-                }}
-                imgExtension={[".jpg", ".png", ".gif"]}
+                label="Max file size: 0.5mb. Accepted: '.jpg', '.png'"
+                onChange={(files) => setFieldValue(name, files)}
+                imgExtension={[".jpg", ".png", ".mp4"]}
                 maxFileSize={MAX_FILE_SIZE}
               />
               {hasError && <FormHelperText error>{meta.error}</FormHelperText>}

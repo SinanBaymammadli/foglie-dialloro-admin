@@ -9,7 +9,7 @@ const URL = "v1/about";
 
 const AboutRepoImplFactory = (apiClient: ApiClient): IAboutRepo => {
   const r: IAboutRepo = {
-    ...generateCrudRepoFactory<IAbout, IAboutForm>(apiClient, URL, aboutFromJson, aboutToJson, true),
+    ...generateCrudRepoFactory<IAbout, IAboutForm>(apiClient, URL, aboutFromJson, aboutToJson),
   };
 
   return r;

@@ -1,13 +1,11 @@
-import * as Yup from "yup";
+import * as yup from "yup";
 
-import { fileValidation } from "../../../core/file";
 import {
   basicEntityFromJson,
   generateImage,
   IBasicEntity,
   IImage,
   IMultiLang,
-  Maybe,
   multiLangFromJson,
   multiLangToJson,
   multiLangValidation,
@@ -16,7 +14,7 @@ import {
 interface IAboutBase {
   title: IMultiLang;
   text: IMultiLang;
-  file: Maybe<File>;
+  imageId: string;
 }
 
 export interface IAboutForm extends IAboutBase {}
@@ -28,16 +26,15 @@ export interface IAbout extends IAboutBase, IBasicEntity {
 const aboutCommonValidation = {
   title: multiLangValidation.required(),
   text: multiLangValidation.required(),
+  imageId: yup.string().required(),
 };
 
-export const aboutFormValidation = Yup.object<IAboutForm>({
+export const aboutFormValidation = yup.object<IAboutForm>({
   ...aboutCommonValidation,
-  file: fileValidation.required(),
 });
 
-export const aboutEditFormValidation = Yup.object<IAboutForm>({
+export const aboutEditFormValidation = yup.object<IAboutForm>({
   ...aboutCommonValidation,
-  file: fileValidation,
 });
 
 export const aboutFromJson = (json: any): IAbout => {
@@ -45,8 +42,8 @@ export const aboutFromJson = (json: any): IAbout => {
     ...basicEntityFromJson(json),
     title: multiLangFromJson(json, "title"),
     text: multiLangFromJson(json, "text"),
-    file: null,
     image: generateImage(json.image),
+    imageId: json.image.id,
   };
 
   return e;
@@ -56,6 +53,8 @@ export const aboutToJson = (form: IAboutForm) => {
   return {
     ...multiLangToJson(form.title, "title"),
     ...multiLangToJson(form.text, "text"),
-    file: form.file,
+    image: {
+      id: form.imageId,
+    },
   };
 };

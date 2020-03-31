@@ -11,8 +11,8 @@ export interface ISelectInputProps<T> extends SelectProps {
   options: IAsyncData<T[]> | T[];
   label: string;
   name: string;
-  renderLabel: (o: T) => string;
-  renderOption?: (o: T) => JSX.Element;
+  renderLabel: (o: T) => React.ReactNode;
+  renderOption?: (o: T) => React.ReactNode;
 }
 
 export function SelectInput<T extends { id: string }>({
@@ -49,7 +49,7 @@ export function SelectInput<T extends { id: string }>({
               <FormControl variant={variant} fullWidth error={hasError}>
                 <InputLabel>{label}</InputLabel>
                 <Select
-                  value={meta.value?.id}
+                  value={meta.value}
                   onChange={(e) => {
                     field.onChange(e);
                     onChange && onChange(e, options);

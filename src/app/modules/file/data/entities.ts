@@ -4,7 +4,7 @@ import { fileValidation } from "../../../core/file";
 import { basicEntityFromJson, generateImage, IBasicEntity, IImage, Maybe } from "../../../core/models";
 
 interface IFileBase {
-  file: Maybe<File>;
+  files: Maybe<File>;
 }
 
 export interface IFileForm extends IFileBase {}
@@ -17,19 +17,19 @@ const fileCommonValidation = {};
 
 export const fileFormValidation = Yup.object<IFileForm>({
   ...fileCommonValidation,
-  file: fileValidation.required(),
+  files: fileValidation.required(),
 });
 
 export const fileEditFormValidation = Yup.object<IFileForm>({
   ...fileCommonValidation,
-  file: fileValidation,
+  files: fileValidation,
 });
 
 export const fileFromJson = (json: any): IFile => {
   const e: IFile = {
     ...basicEntityFromJson(json),
     image: generateImage(json),
-    file: null,
+    files: null,
   };
 
   return e;
@@ -37,6 +37,6 @@ export const fileFromJson = (json: any): IFile => {
 
 export const fileToJson = (form: IFileForm) => {
   return {
-    file: form.file,
+    files: form.files,
   };
 };

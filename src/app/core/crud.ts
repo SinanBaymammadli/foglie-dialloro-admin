@@ -1,7 +1,6 @@
-import { objectToFormData } from "object-to-formdata";
-
 import { ApiClient } from "./api_client";
 import { Failure } from "./failure";
+import { objectToFormData } from "./formData";
 import { ICRUDRepo } from "./models";
 
 export function generateCrudRepoFactory<T, TForm>(
@@ -36,7 +35,7 @@ export function generateCrudRepoFactory<T, TForm>(
     },
     create: async (form) => {
       const json = toJson(form);
-      const data = hasFile ? objectToFormData(json, { indices: true }) : json;
+      const data = hasFile ? objectToFormData(json) : json;
 
       try {
         const res = await apiClient.post(`/${url}`, data, {
@@ -53,7 +52,7 @@ export function generateCrudRepoFactory<T, TForm>(
       }
     },
     edit: async (id, form) => {
-      const data = hasFile ? objectToFormData(toJson(form), { indices: true }) : toJson(form);
+      const data = hasFile ? objectToFormData(toJson(form)) : toJson(form);
 
       try {
         await apiClient.put(`/${url}/${id}`, data, {

@@ -19,14 +19,14 @@ export const FileForm: React.FC<IProps> = (props: IProps) => {
       <Grid item xs={12} md={8} lg={6}>
         <Form<IFileForm>
           initialValues={{
-            file: undefined,
+            files: undefined,
           }}
           validationSchema={fileFormValidation}
           {...props}
         >
           {({ setFieldValue }) => (
             <>
-              <FileInput label="Image" name="file" setFieldValue={setFieldValue} />
+              <FileInput label="Image" name="files" setFieldValue={setFieldValue} />
 
               <FormButton label={submitTitle} loading={loading} />
             </>

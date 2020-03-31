@@ -38,7 +38,7 @@ export const PostDetailPage: React.FC = () => {
                 <TableRow>
                   <TableCell>Banner</TableCell>
                   <TableCell>
-                    <Image image={postDetailBranch.data?.banner} />
+                    <Image image={postDetailBranch.data?.image} />
                   </TableCell>
                 </TableRow>
 

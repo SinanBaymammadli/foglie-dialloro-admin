@@ -1,8 +1,10 @@
-import * as Yup from "yup";
+import * as yup from "yup";
 
 import {
   basicEntityFromJson,
+  generateImage,
   IBasicEntity,
+  IImage,
   IMultiLang,
   multiLangFromJson,
   multiLangToJson,
@@ -13,23 +15,27 @@ interface ISliderBase {
   title: IMultiLang;
   subtitle: IMultiLang;
   description: IMultiLang;
+  imageId: string;
 }
 
 export interface ISliderForm extends ISliderBase {}
 
-export interface ISlider extends ISliderBase, IBasicEntity {}
+export interface ISlider extends ISliderBase, IBasicEntity {
+  image: IImage;
+}
 
 const sliderCommonValidation = {
   title: multiLangValidation.required(),
   subtitle: multiLangValidation.required(),
   description: multiLangValidation.required(),
+  imageId: yup.string().required(),
 };
 
-export const sliderFormValidation = Yup.object<ISliderForm>({
+export const sliderFormValidation = yup.object<ISliderForm>({
   ...sliderCommonValidation,
 });
 
-export const sliderEditFormValidation = Yup.object<ISliderForm>({
+export const sliderEditFormValidation = yup.object<ISliderForm>({
   ...sliderCommonValidation,
 });
 
@@ -39,6 +45,8 @@ export const sliderFromJson = (json: any): ISlider => {
     title: multiLangFromJson(json, "title"),
     subtitle: multiLangFromJson(json, "subtitle"),
     description: multiLangFromJson(json, "description"),
+    imageId: json.image.id,
+    image: generateImage(json.image),
   };
 
   return e;
@@ -49,5 +57,8 @@ export const sliderToJson = (form: ISliderForm) => {
     ...multiLangToJson(form.title, "title"),
     ...multiLangToJson(form.subtitle, "subtitle"),
     ...multiLangToJson(form.description, "description"),
+    image: {
+      id: form.imageId,
+    },
   };
 };

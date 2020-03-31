@@ -1,13 +1,11 @@
-import * as Yup from "yup";
+import * as yup from "yup";
 
-import { fileValidation } from "../../../core/file";
 import {
   basicEntityFromJson,
   generateImage,
   IBasicEntity,
   IImage,
   IMultiLang,
-  Maybe,
   multiLangFromJson,
   multiLangToJson,
   multiLangValidation,
@@ -17,7 +15,7 @@ interface IMemberBase {
   firstName: IMultiLang;
   lastName: IMultiLang;
   position: IMultiLang;
-  file: Maybe<File>;
+  imageId: string;
 }
 
 export interface IMember extends IMemberBase, IBasicEntity {
@@ -30,16 +28,15 @@ const memberCommonValidation = {
   firstName: multiLangValidation.required(),
   lastName: multiLangValidation.required(),
   position: multiLangValidation.required(),
+  imageId: yup.string().required(),
 };
 
-export const memberFormValidation = Yup.object<IMemberForm>({
+export const memberFormValidation = yup.object<IMemberForm>({
   ...memberCommonValidation,
-  file: fileValidation.required(),
 });
 
-export const memberEditFormValidation = Yup.object<IMemberForm>({
+export const memberEditFormValidation = yup.object<IMemberForm>({
   ...memberCommonValidation,
-  file: fileValidation,
 });
 
 export const memberFromJson = (json: any): IMember => {
@@ -48,8 +45,8 @@ export const memberFromJson = (json: any): IMember => {
     firstName: multiLangFromJson(json, "firstName"),
     lastName: multiLangFromJson(json, "lastName"),
     position: multiLangFromJson(json, "position"),
-    file: null,
     image: generateImage(json.image),
+    imageId: json.image.id,
   };
 
   return e;
@@ -60,6 +57,8 @@ export const memberToJson = (form: IMemberForm) => {
     ...multiLangToJson(form.firstName, "firstName"),
     ...multiLangToJson(form.lastName, "lastName"),
     ...multiLangToJson(form.position, "position"),
-    file: form.file,
+    image: {
+      id: form.imageId,
+    },
   };
 };

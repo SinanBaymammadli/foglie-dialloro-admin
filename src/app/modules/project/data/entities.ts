@@ -1,13 +1,11 @@
-import * as Yup from "yup";
+import * as yup from "yup";
 
-import { fileValidation } from "../../../core/file";
 import {
   basicEntityFromJson,
   generateImage,
   IBasicEntity,
   IImage,
   IMultiLang,
-  Maybe,
   multiLangFromJson,
   multiLangToJson,
   multiLangValidation,
@@ -20,7 +18,7 @@ interface IProjectBase {
   location: IMultiLang;
   scale: IMultiLang;
   content: IMultiLang;
-  file: Maybe<File>;
+  imageId: string;
   categoryId: string;
 }
 
@@ -28,7 +26,7 @@ export interface IProjectForm extends IProjectBase {}
 
 export interface IProject extends IProjectBase, IBasicEntity {
   category: ICategory;
-  banner: IImage;
+  image: IImage;
 }
 
 const projectCommonValidation = {
@@ -37,17 +35,16 @@ const projectCommonValidation = {
   location: multiLangValidation.required(),
   scale: multiLangValidation.required(),
   content: multiLangValidation.required(),
-  categoryId: Yup.string().required(),
+  categoryId: yup.string().required(),
+  imageId: yup.string().required(),
 };
 
-export const projectFormValidation = Yup.object<IProjectForm>({
+export const projectFormValidation = yup.object<IProjectForm>({
   ...projectCommonValidation,
-  file: fileValidation.required(),
 });
 
-export const projectEditFormValidation = Yup.object<IProjectForm>({
+export const projectEditFormValidation = yup.object<IProjectForm>({
   ...projectCommonValidation,
-  file: fileValidation,
 });
 
 export const projectFromJson = (json: any): IProject => {
@@ -60,8 +57,8 @@ export const projectFromJson = (json: any): IProject => {
     content: multiLangFromJson(json, "content"),
     category: categoryFromJson(json.category),
     categoryId: json.category.id,
-    file: null,
-    banner: generateImage(json.banner),
+    imageId: json.image.id,
+    image: generateImage(json.image),
   };
 
   return e;
@@ -77,6 +74,8 @@ export const projectToJson = (form: IProjectForm) => {
     category: {
       id: form.categoryId,
     },
-    file: form.file,
+    image: {
+      id: form.imageId,
+    },
   };
 };

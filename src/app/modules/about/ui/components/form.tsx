@@ -1,13 +1,17 @@
 import { Grid } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { FileInput } from "../../../../components/file_input";
 import { Form } from "../../../../components/form";
 import { FormButton } from "../../../../components/form_button";
 import { RichEditor } from "../../../../components/rich_editor";
+import { SelectInput } from "../../../../components/select_input";
 import { TextInput } from "../../../../components/text_input";
-import { IFormProps } from "../../../../core/models";
+import { IAsyncData, IFormProps } from "../../../../core/models";
 import { isPending } from "../../../../core/redux";
+import { IAppReduxState } from "../../../../redux/store";
+import { IFile } from "../../../file/data/entities";
+import { fileReduxActions } from "../../../file/ui/state/state";
 import { aboutFormValidation, IAboutForm } from "../../data/entities";
 
 interface IProps extends IFormProps<IAboutForm> {}
@@ -15,6 +19,12 @@ interface IProps extends IFormProps<IAboutForm> {}
 export const AboutForm: React.FC<IProps> = (props: IProps) => {
   const { branch, submitTitle } = props;
   const loading = isPending(branch);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fileReduxActions.getList());
+  }, [dispatch]);
+  const fileListBranch = useSelector<IAppReduxState, IAsyncData<IFile[]>>((state) => state.file.list);
 
   return (
     <Grid container justify="center">
@@ -31,13 +41,20 @@ export const AboutForm: React.FC<IProps> = (props: IProps) => {
               en: "",
               ru: "",
             },
-            file: undefined,
+            imageId: "",
           }}
           validationSchema={aboutFormValidation}
           {...props}
         >
           {({ setFieldValue }) => (
             <>
+              <SelectInput<IFile>
+                options={fileListBranch}
+                label="Image"
+                name="imageId"
+                renderLabel={(img) => <img src={img.image.url} width={50} height={50} />}
+              />
+
               <TextInput label="Title Az" name="title.az" />
               <RichEditor label="Text az" name="text.az" setFieldValue={setFieldValue} />
 
@@ -46,8 +63,6 @@ export const AboutForm: React.FC<IProps> = (props: IProps) => {
 
               <TextInput label="Title ru" name="title.ru" />
               <RichEditor label="Text ru" name="text.ru" setFieldValue={setFieldValue} />
-
-              <FileInput label="Image" name="file" setFieldValue={setFieldValue} />
 
               <FormButton label={submitTitle} loading={loading} />
             </>
