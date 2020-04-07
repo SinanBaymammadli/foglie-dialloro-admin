@@ -13,7 +13,7 @@ export function generateCrudRepoFactory<T, TForm>(
   const r: ICRUDRepo<T, TForm> = {
     getList: async () => {
       try {
-        const res = await apiClient.get(`/${url}`);
+        const res = await apiClient.get(`/${url}?sort=id,DESC`);
         return res.data.map(fromJson);
       } catch (error) {
         const failure: Failure = {
