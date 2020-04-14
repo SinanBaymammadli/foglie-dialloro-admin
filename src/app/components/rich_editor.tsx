@@ -21,13 +21,6 @@ export const RichEditor: React.FC<IProps> = ({ label, name, setFieldValue }: IPr
               <InputLabel>{label}</InputLabel>
             </Box>
 
-            {/* <ReactQuill
-              value={meta.value}
-              onChange={(text) => {
-                setFieldValue(name, text);
-              }}
-            /> */}
-
             <Editor
               initialValue={meta.value}
               init={{
@@ -38,11 +31,10 @@ export const RichEditor: React.FC<IProps> = ({ label, name, setFieldValue }: IPr
                   "searchreplace visualblocks code fullscreen",
                   "insertdatetime media table paste code help wordcount image",
                 ],
-                toolbar:
-                  "undo redo | formatselect | bold italic backcolor | \
+                toolbar: `undo redo | formatselect | bold italic backcolor | \
                  alignleft aligncenter alignright alignjustify | \
                  media image | \
-                 bullist numlist outdent indent | removeformat | help",
+                 bullist numlist outdent indent | removeformat | help`,
               }}
               onEditorChange={(value) => setFieldValue(name, value)}
             />

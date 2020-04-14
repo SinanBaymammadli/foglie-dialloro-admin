@@ -49,7 +49,7 @@ export const FileListPage: React.FC = () => {
         renderRow={(file) => (
           <>
             <TableCell>
-              <img src={file.image.url} height={50} />
+              <img src={file.image.url} height={50} width={80} alt="" />
             </TableCell>
             <TableCell
               onClick={(e) => {

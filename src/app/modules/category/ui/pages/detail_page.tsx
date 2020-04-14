@@ -54,8 +54,30 @@ export const CategoryDetailPage: React.FC = () => {
               </TableRow>
 
               <TableRow>
-                <TableCell>Sub categories</TableCell>
-                <TableCell>{categoryDetailBranch.data?.children?.map((c) => c.name.az)}</TableCell>
+                <TableCell>Sub categories az</TableCell>
+                <TableCell>
+                  {categoryDetailBranch.data?.children?.map((c) => (
+                    <p>{c.name.az}</p>
+                  ))}
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Sub categories en</TableCell>
+                <TableCell>
+                  {categoryDetailBranch.data?.children?.map((c) => (
+                    <p>{c.name.en}</p>
+                  ))}
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Sub categories ru</TableCell>
+                <TableCell>
+                  {categoryDetailBranch.data?.children?.map((c) => (
+                    <p>{c.name.ru}</p>
+                  ))}
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>

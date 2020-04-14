@@ -57,7 +57,7 @@ export const SliderForm: React.FC<IProps> = (props: IProps) => {
                 options={fileListBranch}
                 label="Image"
                 name="imageId"
-                renderLabel={(img) => <img src={img.image.url} width={50} height={50} />}
+                renderLabel={(img) => <img src={img.image.url} width={50} height={50} alt="" />}
               />
 
               <TextInput label="Title Az" name="title.az" />

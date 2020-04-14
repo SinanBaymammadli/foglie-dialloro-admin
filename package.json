@@ -9,8 +9,8 @@
     "eject": "react-scripts eject",
     "deploy": "now",
     "deploy:prod": "now --prod",
-    "lint": "eslint './src/**/*.{tsx,ts}'",
-    "lint:fix": "eslint './src/**/*.{tsx,ts}' --fix"
+    "lint": "eslint \"./src/**/*.{tsx,ts}\"",
+    "lint:fix": "eslint \"./src/**/*.{tsx,ts}\" --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,8 +34,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
+      "eslint --fix"
     ]
   },
   "proxy": "http://localhost:4400",

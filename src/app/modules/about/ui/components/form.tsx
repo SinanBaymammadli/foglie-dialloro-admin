@@ -56,35 +56,35 @@ export const AboutForm: React.FC<IProps> = (props: IProps) => {
                 options={fileListBranch}
                 label="Image"
                 name="imageId"
-                renderLabel={(img) => <img src={img.image.url} width={50} height={50} />}
+                renderLabel={(img) => <img src={img.image.url} width={50} height={50} alt="" />}
               />
 
               <SelectInput<IFile>
                 options={fileListBranch}
                 label="Home image 1"
                 name="image1Id"
-                renderLabel={(img) => <img src={img.image.url} width={50} height={50} />}
+                renderLabel={(img) => <img src={img.image.url} width={50} height={50} alt="" />}
               />
 
               <SelectInput<IFile>
                 options={fileListBranch}
                 label="Home image 2"
                 name="image2Id"
-                renderLabel={(img) => <img src={img.image.url} width={50} height={50} />}
+                renderLabel={(img) => <img src={img.image.url} width={50} height={50} alt="" />}
               />
 
               <SelectInput<IFile>
                 options={fileListBranch}
                 label="Home image 3"
                 name="image3Id"
-                renderLabel={(img) => <img src={img.image.url} width={50} height={50} />}
+                renderLabel={(img) => <img src={img.image.url} width={50} height={50} alt="" />}
               />
 
               <SelectInput<IFile>
                 options={fileListBranch}
                 label="Home image 4"
                 name="image4Id"
-                renderLabel={(img) => <img src={img.image.url} width={50} height={50} />}
+                renderLabel={(img) => <img src={img.image.url} width={50} height={50} alt="" />}
               />
 
               <TextInput label="Title Az" name="title.az" />

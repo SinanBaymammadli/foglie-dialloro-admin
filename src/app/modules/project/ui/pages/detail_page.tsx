@@ -39,13 +39,84 @@ export const ProjectDetailPage: React.FC = () => {
           <Table size="medium" className="detail-table">
             <TableBody>
               <TableRow>
-                <TableCell>Title</TableCell>
+                <TableCell>Title az</TableCell>
                 <TableCell>{projectDetailBranch.data?.title.az}</TableCell>
               </TableRow>
 
               <TableRow>
-                <TableCell>Client</TableCell>
+                <TableCell>Title en</TableCell>
+                <TableCell>{projectDetailBranch.data?.title.en}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Title ru</TableCell>
+                <TableCell>{projectDetailBranch.data?.title.ru}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Client az</TableCell>
+                <TableCell>{projectDetailBranch.data?.client.az}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Client en</TableCell>
                 <TableCell>{projectDetailBranch.data?.client.en}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Client ru</TableCell>
+                <TableCell>{projectDetailBranch.data?.client.ru}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Location az</TableCell>
+                <TableCell>{projectDetailBranch.data?.location.az}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Location en</TableCell>
+                <TableCell>{projectDetailBranch.data?.location.en}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Location ru</TableCell>
+                <TableCell>{projectDetailBranch.data?.location.ru}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Scale az</TableCell>
+                <TableCell>{projectDetailBranch.data?.scale.az}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Scale en</TableCell>
+                <TableCell>{projectDetailBranch.data?.scale.en}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Scale ru</TableCell>
+                <TableCell>{projectDetailBranch.data?.scale.ru}</TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Content az</TableCell>
+                <TableCell>
+                  <div dangerouslySetInnerHTML={{ __html: projectDetailBranch.data?.content.az ?? "" }} />
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Content en</TableCell>
+                <TableCell>
+                  <div dangerouslySetInnerHTML={{ __html: projectDetailBranch.data?.content.en ?? "" }} />
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>Content ru</TableCell>
+                <TableCell>
+                  <div dangerouslySetInnerHTML={{ __html: projectDetailBranch.data?.content.ru ?? "" }} />
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>

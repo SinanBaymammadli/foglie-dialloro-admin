@@ -30,7 +30,7 @@ export const PostDetailPage: React.FC = () => {
 
   return (
     <Grid container justify="center">
-      <Grid item xs={12} md={8} lg={6}>
+      <Grid item xs={12} md={8} lg={8}>
         {postDetailBranch.data && (
           <DetailTable branch={postDetailBranch} route={ROUTES.post} onDelete={deletePost} deleteBranch={deleteBranch}>
             <Table size="medium" className="detail-table">
