@@ -20,6 +20,7 @@ interface IProjectBase {
   content: IMultiLang;
   imageId: string;
   categoryId: string;
+  date: string;
 }
 
 export interface IProjectForm extends IProjectBase {}
@@ -37,6 +38,7 @@ const projectCommonValidation = {
   content: multiLangValidation.required(),
   categoryId: yup.string().required(),
   imageId: yup.string().required(),
+  date: yup.string().required(),
 };
 
 export const projectFormValidation = yup.object<IProjectForm>({
@@ -59,6 +61,7 @@ export const projectFromJson = (json: any): IProject => {
     categoryId: json.category.id,
     imageId: json.image.id,
     image: generateImage(json.image),
+    date: json.date,
   };
 
   return e;
@@ -77,5 +80,6 @@ export const projectToJson = (form: IProjectForm) => {
     image: {
       id: form.imageId,
     },
+    date: form.date,
   };
 };

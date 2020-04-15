@@ -35,14 +35,16 @@ export const ProjectListPage: React.FC = () => {
         deleteBranch={deleteBranch}
         renderHeader={() => (
           <>
-            <TableCell>Title</TableCell>
-            <TableCell>Client</TableCell>
+            <TableCell>Title az</TableCell>
+            <TableCell>Client az</TableCell>
+            <TableCell>Location az</TableCell>
           </>
         )}
         renderRow={(project) => (
           <>
             <TableCell>{project.title.az}</TableCell>
             <TableCell>{project.client.az}</TableCell>
+            <TableCell>{project.location.az}</TableCell>
           </>
         )}
       />

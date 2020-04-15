@@ -60,6 +60,7 @@ export const ProjectForm: React.FC<IProps> = (props: IProps) => {
               en: "",
               ru: "",
             },
+            date: "",
             categoryId: "",
             imageId: "",
           }}
@@ -79,17 +80,19 @@ export const ProjectForm: React.FC<IProps> = (props: IProps) => {
               <TextInput label="Title En" name="title.en" />
               <TextInput label="Title Ru" name="title.ru" />
 
-              <TextInput label="client Az" name="client.az" />
-              <TextInput label="client En" name="client.en" />
-              <TextInput label="client Ru" name="client.ru" />
+              <TextInput label="Client Az" name="client.az" />
+              <TextInput label="Client En" name="client.en" />
+              <TextInput label="Client Ru" name="client.ru" />
 
-              <TextInput label="location Az" name="location.az" />
-              <TextInput label="location En" name="location.en" />
-              <TextInput label="location Ru" name="location.ru" />
+              <TextInput label="Location Az" name="location.az" />
+              <TextInput label="Location En" name="location.en" />
+              <TextInput label="Location Ru" name="location.ru" />
 
-              <TextInput label="scale Az" name="scale.az" />
-              <TextInput label="scale En" name="scale.en" />
-              <TextInput label="scale Ru" name="scale.ru" />
+              <TextInput label="Date" name="date" type="date" />
+
+              <TextInput label="Scale Az" name="scale.az" />
+              <TextInput label="Scale En" name="scale.en" />
+              <TextInput label="Scale Ru" name="scale.ru" />
 
               <RichEditor label="Content az" name="content.az" setFieldValue={setFieldValue} />
               <RichEditor label="Content en" name="content.en" setFieldValue={setFieldValue} />
