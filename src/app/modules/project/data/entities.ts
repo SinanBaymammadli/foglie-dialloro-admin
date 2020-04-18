@@ -21,6 +21,7 @@ interface IProjectBase {
   imageId: string;
   categoryId: string;
   date: string;
+  noContent: boolean;
 }
 
 export interface IProjectForm extends IProjectBase {}
@@ -32,13 +33,66 @@ export interface IProject extends IProjectBase, IBasicEntity {
 
 const projectCommonValidation = {
   title: multiLangValidation.required(),
-  client: multiLangValidation.required(),
-  location: multiLangValidation.required(),
-  scale: multiLangValidation.required(),
-  content: multiLangValidation.required(),
-  categoryId: yup.string().required(),
+  noContent: yup.boolean().required(),
   imageId: yup.string().required(),
-  date: yup.string().required(),
+  client: yup.object<IMultiLang>().when("noContent", {
+    is: true,
+    then: yup.object<IMultiLang>({
+      az: yup.string(),
+      en: yup.string(),
+      ru: yup.string(),
+    }),
+    otherwise: yup.object<IMultiLang>({
+      az: yup.string().required(),
+      en: yup.string().required(),
+      ru: yup.string().required(),
+    }),
+  }),
+  location: yup.object<IMultiLang>().when("noContent", {
+    is: true,
+    then: yup.object<IMultiLang>({
+      az: yup.string(),
+      en: yup.string(),
+      ru: yup.string(),
+    }),
+    otherwise: yup.object<IMultiLang>({
+      az: yup.string().required(),
+      en: yup.string().required(),
+      ru: yup.string().required(),
+    }),
+  }),
+  scale: yup.object<IMultiLang>().when("noContent", {
+    is: true,
+    then: yup.object<IMultiLang>({
+      az: yup.string(),
+      en: yup.string(),
+      ru: yup.string(),
+    }),
+    otherwise: yup.object<IMultiLang>({
+      az: yup.string().required(),
+      en: yup.string().required(),
+      ru: yup.string().required(),
+    }),
+  }),
+  content: yup.object<IMultiLang>().when("noContent", {
+    is: true,
+    then: yup.object<IMultiLang>({
+      az: yup.string(),
+      en: yup.string(),
+      ru: yup.string(),
+    }),
+    otherwise: yup.object<IMultiLang>({
+      az: yup.string().required(),
+      en: yup.string().required(),
+      ru: yup.string().required(),
+    }),
+  }),
+  categoryId: yup.string().required(),
+  date: yup.string().when("noContent", {
+    is: true,
+    then: yup.string(),
+    otherwise: yup.string().required(),
+  }),
 };
 
 export const projectFormValidation = yup.object<IProjectForm>({
@@ -62,6 +116,7 @@ export const projectFromJson = (json: any): IProject => {
     imageId: json.image.id,
     image: generateImage(json.image),
     date: json.date,
+    noContent: json.noContent,
   };
 
   return e;
@@ -80,6 +135,7 @@ export const projectToJson = (form: IProjectForm) => {
     image: {
       id: form.imageId,
     },
-    date: form.date,
+    date: form.date ? form.date : null,
+    noContent: form.noContent,
   };
 };

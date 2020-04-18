@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Switch } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -63,11 +63,12 @@ export const ProjectForm: React.FC<IProps> = (props: IProps) => {
             date: "",
             categoryId: "",
             imageId: "",
+            noContent: false,
           }}
           validationSchema={projectFormValidation}
           {...props}
         >
-          {({ setFieldValue, values }) => (
+          {({ setFieldValue, values, handleChange }) => (
             <>
               <SelectInput<IFile>
                 options={fileListBranch}
@@ -80,23 +81,34 @@ export const ProjectForm: React.FC<IProps> = (props: IProps) => {
               <TextInput label="Title En" name="title.en" />
               <TextInput label="Title Ru" name="title.ru" />
 
-              <TextInput label="Client Az" name="client.az" />
-              <TextInput label="Client En" name="client.en" />
-              <TextInput label="Client Ru" name="client.ru" />
+              <Grid component="label" container alignItems="center" spacing={1}>
+                <Grid item>No content</Grid>
+                <Grid item>
+                  <Switch checked={values.noContent} onChange={handleChange} name="noContent" />
+                </Grid>
+              </Grid>
 
-              <TextInput label="Location Az" name="location.az" />
-              <TextInput label="Location En" name="location.en" />
-              <TextInput label="Location Ru" name="location.ru" />
+              {!values.noContent && (
+                <>
+                  <TextInput label="Client Az" name="client.az" />
+                  <TextInput label="Client En" name="client.en" />
+                  <TextInput label="Client Ru" name="client.ru" />
 
-              <TextInput label="Date" name="date" type="date" />
+                  <TextInput label="Location Az" name="location.az" />
+                  <TextInput label="Location En" name="location.en" />
+                  <TextInput label="Location Ru" name="location.ru" />
 
-              <TextInput label="Scale Az" name="scale.az" />
-              <TextInput label="Scale En" name="scale.en" />
-              <TextInput label="Scale Ru" name="scale.ru" />
+                  <TextInput label="Date" name="date" type="date" />
 
-              <RichEditor label="Content az" name="content.az" setFieldValue={setFieldValue} />
-              <RichEditor label="Content en" name="content.en" setFieldValue={setFieldValue} />
-              <RichEditor label="Content ru" name="content.ru" setFieldValue={setFieldValue} />
+                  <TextInput label="Scale Az" name="scale.az" />
+                  <TextInput label="Scale En" name="scale.en" />
+                  <TextInput label="Scale Ru" name="scale.ru" />
+
+                  <RichEditor label="Content az" name="content.az" setFieldValue={setFieldValue} />
+                  <RichEditor label="Content en" name="content.en" setFieldValue={setFieldValue} />
+                  <RichEditor label="Content ru" name="content.ru" setFieldValue={setFieldValue} />
+                </>
+              )}
 
               <SelectInput<ICategory>
                 options={categoryListBranch}
