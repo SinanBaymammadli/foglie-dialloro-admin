@@ -17,6 +17,7 @@ function EnvServiceFactory(): IEnvProfile {
 console.log({
   nodeEnv: process.env.NODE_ENV,
   gitBranch: process.env.REACT_APP_GIT_BRANCH,
+  profile: process.env.ENV_PROFILE,
 });
 
 export const EnvService = EnvServiceFactory();
