@@ -14,4 +14,9 @@ function EnvServiceFactory(): IEnvProfile {
   return { profile: "local" };
 }
 
+console.log({
+  nodeEnv: process.env.NODE_ENV,
+  profile: process.env.REACT_APP_ENV_PROFILE,
+});
+
 export const EnvService = EnvServiceFactory();
