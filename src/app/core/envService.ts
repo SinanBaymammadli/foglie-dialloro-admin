@@ -3,11 +3,11 @@ interface IEnvProfile {
 }
 
 function EnvServiceFactory(): IEnvProfile {
-  if (process.env.NODE_ENV === "production" && process.env.GIT_BRANCH === "master") {
+  if (process.env.NODE_ENV === "production" && process.env.REACT_APP_GIT_BRANCH === "master") {
     return { profile: "prod" };
   }
 
-  if (process.env.NODE_ENV === "production" && process.env.GIT_BRANCH === "develop") {
+  if (process.env.NODE_ENV === "production" && process.env.REACT_APP_GIT_BRANCH === "develop") {
     return { profile: "dev" };
   }
 
