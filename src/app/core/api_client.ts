@@ -2,22 +2,18 @@ import axios, { AxiosError, AxiosInstance } from "axios";
 
 import { AuthRepoImpl } from "../modules/auth/data/repo";
 import { ROUTES } from "../routes";
+import { EnvService } from "./envService";
 
 export interface ApiClient extends AxiosInstance {}
 
-const currentDomain = window.location.hostname;
-
-const prodDomain = "foglie-dialloro-admin.now.sh";
-const devDomain = "foglie-dialloro-admin.now.sh";
-
 const prodApiUrl = "https://foglie-dialloro-api.herokuapp.com/";
-const devApiUrl = "https://foglie-dialloro-api.herokuapp.com/";
+const devApiUrl = "https://foglie-dialloro-api-dev.herokuapp.com/";
 const localApiUrl = "http://localhost:4400/";
 
 function getBaseApiUrl(): string {
-  if (currentDomain === prodDomain) {
+  if (EnvService.profile === "prod") {
     return prodApiUrl;
-  } else if (currentDomain === devDomain) {
+  } else if (EnvService.profile === "dev") {
     return devApiUrl;
   }
   return localApiUrl;
