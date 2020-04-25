@@ -51,6 +51,7 @@ export const CategoryForm: React.FC<IProps> = (props: IProps) => {
                 name="parentId"
                 value={values.parentId}
                 renderLabel={(e) => e.name.az}
+                notRequired
               />
 
               <FormButton label={submitTitle} loading={loading} />

@@ -13,6 +13,7 @@ export interface ISelectInputProps<T> extends SelectProps {
   name: string;
   renderLabel: (o: T) => React.ReactNode;
   renderOption?: (o: T) => React.ReactNode;
+  notRequired?: boolean;
 }
 
 export function SelectInput<T extends { id: string }>({
@@ -23,6 +24,7 @@ export function SelectInput<T extends { id: string }>({
   onChange,
   renderOption,
   variant = "filled",
+  notRequired,
   ...rest
 }: ISelectInputProps<T>) {
   const loading = isAsyncData(options) ? isPending(options) : false;
@@ -59,6 +61,7 @@ export function SelectInput<T extends { id: string }>({
                   variant={variant}
                   {...rest}
                 >
+                  {notRequired && <MenuItem value="">None</MenuItem>}
                   {options}
                 </Select>
                 {hasError && <FormHelperText>{meta.error?.toString()}</FormHelperText>}
