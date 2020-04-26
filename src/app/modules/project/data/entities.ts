@@ -90,7 +90,7 @@ const projectCommonValidation = {
   categoryId: yup.string().required(),
   date: yup.string().when("noContent", {
     is: true,
-    then: yup.string(),
+    then: yup.string().nullable(),
     otherwise: yup.string().required(),
   }),
 };

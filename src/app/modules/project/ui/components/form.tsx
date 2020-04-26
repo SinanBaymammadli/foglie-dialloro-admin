@@ -68,59 +68,61 @@ export const ProjectForm: React.FC<IProps> = (props: IProps) => {
           validationSchema={projectFormValidation}
           {...props}
         >
-          {({ setFieldValue, values, handleChange }) => (
-            <>
-              <SelectInput<IFile>
-                options={fileListBranch}
-                label="Image"
-                name="imageId"
-                renderLabel={(img) => <img src={img.image.url} width={50} height={50} alt="" />}
-              />
+          {({ setFieldValue, values, handleChange }) => {
+            return (
+              <>
+                <SelectInput<IFile>
+                  options={fileListBranch}
+                  label="Image"
+                  name="imageId"
+                  renderLabel={(img) => <img src={img.image.url} width={50} height={50} alt="" />}
+                />
 
-              <TextInput label="Title Az" name="title.az" />
-              <TextInput label="Title En" name="title.en" />
-              <TextInput label="Title Ru" name="title.ru" />
+                <TextInput label="Title Az" name="title.az" />
+                <TextInput label="Title En" name="title.en" />
+                <TextInput label="Title Ru" name="title.ru" />
 
-              <Grid component="label" container alignItems="center" spacing={1}>
-                <Grid item>No content</Grid>
-                <Grid item>
-                  <Switch checked={values.noContent} onChange={handleChange} name="noContent" />
+                <Grid component="label" container alignItems="center" spacing={1}>
+                  <Grid item>No content</Grid>
+                  <Grid item>
+                    <Switch checked={values.noContent} onChange={handleChange} name="noContent" />
+                  </Grid>
                 </Grid>
-              </Grid>
 
-              {!values.noContent && (
-                <>
-                  <TextInput label="Client Az" name="client.az" />
-                  <TextInput label="Client En" name="client.en" />
-                  <TextInput label="Client Ru" name="client.ru" />
+                {!values.noContent && (
+                  <>
+                    <TextInput label="Client Az" name="client.az" />
+                    <TextInput label="Client En" name="client.en" />
+                    <TextInput label="Client Ru" name="client.ru" />
 
-                  <TextInput label="Location Az" name="location.az" />
-                  <TextInput label="Location En" name="location.en" />
-                  <TextInput label="Location Ru" name="location.ru" />
+                    <TextInput label="Location Az" name="location.az" />
+                    <TextInput label="Location En" name="location.en" />
+                    <TextInput label="Location Ru" name="location.ru" />
 
-                  <TextInput label="Date" name="date" type="date" />
+                    <TextInput label="Date" name="date" type="date" />
 
-                  <TextInput label="Scale Az" name="scale.az" />
-                  <TextInput label="Scale En" name="scale.en" />
-                  <TextInput label="Scale Ru" name="scale.ru" />
+                    <TextInput label="Scale Az" name="scale.az" />
+                    <TextInput label="Scale En" name="scale.en" />
+                    <TextInput label="Scale Ru" name="scale.ru" />
 
-                  <RichEditor label="Content az" name="content.az" setFieldValue={setFieldValue} />
-                  <RichEditor label="Content en" name="content.en" setFieldValue={setFieldValue} />
-                  <RichEditor label="Content ru" name="content.ru" setFieldValue={setFieldValue} />
-                </>
-              )}
+                    <RichEditor label="Content az" name="content.az" setFieldValue={setFieldValue} />
+                    <RichEditor label="Content en" name="content.en" setFieldValue={setFieldValue} />
+                    <RichEditor label="Content ru" name="content.ru" setFieldValue={setFieldValue} />
+                  </>
+                )}
 
-              <SelectInput<ICategory>
-                options={categoryListBranch}
-                label="Category"
-                name="categoryId"
-                value={values.categoryId}
-                renderLabel={(e) => e.name.az}
-              />
+                <SelectInput<ICategory>
+                  options={categoryListBranch}
+                  label="Category"
+                  name="categoryId"
+                  value={values.categoryId}
+                  renderLabel={(e) => e.name.az}
+                />
 
-              <FormButton label={submitTitle} loading={loading} />
-            </>
-          )}
+                <FormButton label={submitTitle} loading={loading} />
+              </>
+            );
+          }}
         </Form>
       </Grid>
     </Grid>
