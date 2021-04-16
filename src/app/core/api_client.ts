@@ -7,12 +7,12 @@ export interface ApiClient extends AxiosInstance {}
 
 const currentDomain = window.location.hostname;
 
-const prodDomain = "foglie-dialloro-admin.now.sh";
-const devDomain = "foglie-dialloro-admin.now.sh";
+const prodDomain = "foglie-dialloro-admin.vercel.app";
+const devDomain = "foglie-dialloro-admin.vercel.app";
 
-const prodApiUrl = "https://foglie-dialloro-api.herokuapp.com/";
-const devApiUrl = "https://foglie-dialloro-api.herokuapp.com/";
-const localApiUrl = "http://localhost:4400/";
+const prodApiUrl = "https://foglie-dialloro-api.herokuapp.com";
+const devApiUrl = "https://foglie-dialloro-api.herokuapp.com";
+const localApiUrl = "http://localhost:3000";
 
 function getBaseApiUrl(): string {
   if (currentDomain === prodDomain) {
@@ -35,7 +35,7 @@ function authInterceptor(error: AxiosError) {
 }
 
 export const apiClient: ApiClient = axios.create({
-  baseURL: `${BASE_URL}`,
+  baseURL: `${BASE_URL}/`,
   headers: {
     "Content-Type": "application/json",
   },
