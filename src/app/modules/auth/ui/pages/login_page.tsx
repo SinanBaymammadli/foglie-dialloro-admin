@@ -29,7 +29,7 @@ export const LoginPage: React.FC = () => {
       <Box m={2}>
         <Center>
           <Typography variant="h4" gutterBottom>
-            The Sistem
+            Foglie D’alloro
           </Typography>
         </Center>
       </Box>
